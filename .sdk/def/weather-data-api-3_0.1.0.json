@@ -1,0 +1,725 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Weather Data API",
+    "description": "This API provides comprehensive weather data including current conditions, hourly forecasts, and daily summaries. It includes metrics such as temperature, humidity, wind speed, precipitation, and various other atmospheric parameters.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://api.open-meteo.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.open-meteo.com/v1",
+      "description": "Open-Meteo Weather API"
+    }
+  ],
+  "paths": {
+    "/forecast": {
+      "get": {
+        "summary": "Get weather forecast data",
+        "description": "Retrieves comprehensive weather forecast data including current conditions, hourly forecasts, and daily summaries for a specified location.",
+        "operationId": "getWeatherForecast",
+        "parameters": [
+          {
+            "name": "latitude",
+            "in": "query",
+            "description": "Latitude coordinate of the location",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "float",
+              "example": 52.52
+            }
+          },
+          {
+            "name": "longitude",
+            "in": "query",
+            "description": "Longitude coordinate of the location",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "float",
+              "example": 13.41
+            }
+          },
+          {
+            "name": "current",
+            "in": "query",
+            "description": "Comma-separated list of current weather parameters to retrieve",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "temperature_2m,relative_humidity_2m,apparent_temperature,is_day,wind_speed_10m,wind_direction_10m,wind_gusts_10m,precipitation,rain,showers,snowfall,weather_code,cloud_cover,pressure_msl,surface_pressure"
+            }
+          },
+          {
+            "name": "hourly",
+            "in": "query",
+            "description": "Comma-separated list of hourly weather parameters to retrieve",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "temperature_2m,relative_humidity_2m,dew_point_2m,apparent_temperature,precipitation_probability,precipitation,rain,showers,snowfall,snow_depth,vapour_pressure_deficit,et0_fao_evapotranspiration,visibility,evapotranspiration,cloud_cover_high,cloud_cover_mid,cloud_cover_low,cloud_cover,surface_pressure,pressure_msl,weather_code,wind_speed_10m,wind_speed_80m,wind_speed_120m,wind_speed_180m,wind_direction_10m,wind_direction_80m,wind_direction_120m,wind_direction_180m,wind_gusts_10m,temperature_80m,temperature_120m,temperature_180m,soil_temperature_0cm,soil_temperature_6cm,soil_temperature_18cm,soil_temperature_54cm,soil_moisture_0_to_1cm,soil_moisture_1_to_3cm,soil_moisture_3_to_9cm,soil_moisture_9_to_27cm,soil_moisture_27_to_81cm"
+            }
+          },
+          {
+            "name": "daily",
+            "in": "query",
+            "description": "Comma-separated list of daily weather parameters to retrieve",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "weather_code,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,wind_speed_10m_max,sunrise,sunset,daylight_duration,sunshine_duration,uv_index_max,uv_index_clear_sky_max,rain_sum,showers_sum,snowfall_sum,precipitation_hours,precipitation_sum,precipitation_probability_max,wind_gusts_10m_max,wind_direction_10m_dominant,shortwave_radiation_sum,et0_fao_evapotranspiration"
+            }
+          },
+          {
+            "name": "timezone",
+            "in": "query",
+            "description": "Timezone for the returned data. Use 'auto' to automatically detect timezone based on coordinates",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "GMT",
+              "example": "auto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with weather forecast data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WeatherForecastResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "WeatherForecastResponse": {
+        "type": "object",
+        "properties": {
+          "latitude": {
+            "type": "number",
+            "format": "float",
+            "description": "Latitude of the location"
+          },
+          "longitude": {
+            "type": "number",
+            "format": "float",
+            "description": "Longitude of the location"
+          },
+          "generationtime_ms": {
+            "type": "number",
+            "format": "float",
+            "description": "Time taken to generate the response in milliseconds"
+          },
+          "utc_offset_seconds": {
+            "type": "integer",
+            "description": "UTC offset in seconds"
+          },
+          "timezone": {
+            "type": "string",
+            "description": "Timezone identifier"
+          },
+          "timezone_abbreviation": {
+            "type": "string",
+            "description": "Timezone abbreviation"
+          },
+          "elevation": {
+            "type": "number",
+            "format": "float",
+            "description": "Elevation of the location in meters"
+          },
+          "current_units": {
+            "$ref": "#/components/schemas/CurrentUnits"
+          },
+          "current": {
+            "$ref": "#/components/schemas/CurrentWeather"
+          },
+          "hourly_units": {
+            "$ref": "#/components/schemas/HourlyUnits"
+          },
+          "hourly": {
+            "$ref": "#/components/schemas/HourlyWeather"
+          },
+          "daily_units": {
+            "$ref": "#/components/schemas/DailyUnits"
+          },
+          "daily": {
+            "$ref": "#/components/schemas/DailyWeather"
+          }
+        }
+      },
+      "CurrentUnits": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "example": "iso8601"
+          },
+          "interval": {
+            "type": "string",
+            "example": "seconds"
+          },
+          "temperature_2m": {
+            "type": "string",
+            "example": "°C"
+          },
+          "relative_humidity_2m": {
+            "type": "string",
+            "example": "%"
+          },
+          "apparent_temperature": {
+            "type": "string",
+            "example": "°C"
+          },
+          "is_day": {
+            "type": "string"
+          },
+          "wind_speed_10m": {
+            "type": "string",
+            "example": "km/h"
+          },
+          "wind_direction_10m": {
+            "type": "string",
+            "example": "°"
+          },
+          "wind_gusts_10m": {
+            "type": "string",
+            "example": "km/h"
+          },
+          "precipitation": {
+            "type": "string",
+            "example": "mm"
+          },
+          "rain": {
+            "type": "string",
+            "example": "mm"
+          },
+          "showers": {
+            "type": "string",
+            "example": "mm"
+          },
+          "snowfall": {
+            "type": "string",
+            "example": "cm"
+          },
+          "weather_code": {
+            "type": "string",
+            "example": "wmo code"
+          },
+          "cloud_cover": {
+            "type": "string",
+            "example": "%"
+          },
+          "pressure_msl": {
+            "type": "string",
+            "example": "hPa"
+          },
+          "surface_pressure": {
+            "type": "string",
+            "example": "hPa"
+          }
+        }
+      },
+      "CurrentWeather": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp of current weather data"
+          },
+          "interval": {
+            "type": "integer",
+            "description": "Update interval in seconds"
+          },
+          "temperature_2m": {
+            "type": "number",
+            "format": "float",
+            "description": "Temperature at 2 meters above ground"
+          },
+          "relative_humidity_2m": {
+            "type": "integer",
+            "description": "Relative humidity at 2 meters above ground"
+          },
+          "apparent_temperature": {
+            "type": "number",
+            "format": "float",
+            "description": "Apparent temperature (feels like)"
+          },
+          "is_day": {
+            "type": "integer",
+            "description": "Whether it is currently day (1) or night (0)"
+          },
+          "wind_speed_10m": {
+            "type": "number",
+            "format": "float",
+            "description": "Wind speed at 10 meters above ground"
+          },
+          "wind_direction_10m": {
+            "type": "integer",
+            "description": "Wind direction at 10 meters above ground in degrees"
+          },
+          "wind_gusts_10m": {
+            "type": "number",
+            "format": "float",
+            "description": "Wind gusts at 10 meters above ground"
+          },
+          "precipitation": {
+            "type": "number",
+            "format": "float",
+            "description": "Total precipitation"
+          },
+          "rain": {
+            "type": "number",
+            "format": "float",
+            "description": "Rain amount"
+          },
+          "showers": {
+            "type": "number",
+            "format": "float",
+            "description": "Showers amount"
+          },
+          "snowfall": {
+            "type": "number",
+            "format": "float",
+            "description": "Snowfall amount"
+          },
+          "weather_code": {
+            "type": "integer",
+            "description": "WMO weather code"
+          },
+          "cloud_cover": {
+            "type": "integer",
+            "description": "Cloud cover percentage"
+          },
+          "pressure_msl": {
+            "type": "number",
+            "format": "float",
+            "description": "Atmospheric pressure at mean sea level"
+          },
+          "surface_pressure": {
+            "type": "number",
+            "format": "float",
+            "description": "Atmospheric pressure at surface level"
+          }
+        }
+      },
+      "HourlyUnits": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "example": "iso8601"
+          },
+          "temperature_2m": {
+            "type": "string",
+            "example": "°C"
+          },
+          "relative_humidity_2m": {
+            "type": "string",
+            "example": "%"
+          },
+          "dew_point_2m": {
+            "type": "string",
+            "example": "°C"
+          },
+          "apparent_temperature": {
+            "type": "string",
+            "example": "°C"
+          },
+          "precipitation_probability": {
+            "type": "string",
+            "example": "%"
+          },
+          "precipitation": {
+            "type": "string",
+            "example": "mm"
+          },
+          "rain": {
+            "type": "string",
+            "example": "mm"
+          },
+          "showers": {
+            "type": "string",
+            "example": "mm"
+          },
+          "snowfall": {
+            "type": "string",
+            "example": "cm"
+          },
+          "snow_depth": {
+            "type": "string",
+            "example": "m"
+          },
+          "weather_code": {
+            "type": "string",
+            "example": "wmo code"
+          },
+          "cloud_cover": {
+            "type": "string",
+            "example": "%"
+          },
+          "visibility": {
+            "type": "string",
+            "example": "m"
+          },
+          "wind_speed_10m": {
+            "type": "string",
+            "example": "km/h"
+          },
+          "wind_direction_10m": {
+            "type": "string",
+            "example": "°"
+          },
+          "wind_gusts_10m": {
+            "type": "string",
+            "example": "km/h"
+          }
+        }
+      },
+      "HourlyWeather": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "description": "Array of timestamps for hourly data"
+          },
+          "temperature_2m": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "float"
+            },
+            "description": "Hourly temperature at 2 meters above ground"
+          },
+          "relative_humidity_2m": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "Hourly relative humidity at 2 meters above ground"
+          },
+          "dew_point_2m": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "float"
+            },
+            "description": "Hourly dew point at 2 meters above ground"
+          },
+          "apparent_temperature": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "float"
+            },
+            "description": "Hourly apparent temperature"
+          },
+          "precipitation_probability": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "Hourly precipitation probability"
+          },
+          "precipitation": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "float"
+            },
+            "description": "Hourly precipitation amount"
+          },
+          "rain": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "float"
+            },
+            "description": "Hourly rain amount"
+          },
+          "showers": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "float"
+            },
+            "description": "Hourly showers amount"
+          },
+          "snowfall": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "float"
+            },
+            "description": "Hourly snowfall amount"
+          },
+          "snow_depth": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "float"
+            },
+            "description": "Hourly snow depth"
+          },
+          "weather_code": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "Hourly WMO weather code"
+          },
+          "cloud_cover": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "Hourly cloud cover percentage"
+          },
+          "visibility": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "float"
+            },
+            "description": "Hourly visibility in meters"
+          },
+          "wind_speed_10m": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "float"
+            },
+            "description": "Hourly wind speed at 10 meters above ground"
+          },
+          "wind_direction_10m": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "Hourly wind direction at 10 meters above ground"
+          },
+          "wind_gusts_10m": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "float"
+            },
+            "description": "Hourly wind gusts at 10 meters above ground"
+          }
+        }
+      },
+      "DailyUnits": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "example": "iso8601"
+          },
+          "weather_code": {
+            "type": "string",
+            "example": "wmo code"
+          },
+          "temperature_2m_max": {
+            "type": "string",
+            "example": "°C"
+          },
+          "temperature_2m_min": {
+            "type": "string",
+            "example": "°C"
+          },
+          "apparent_temperature_max": {
+            "type": "string",
+            "example": "°C"
+          },
+          "apparent_temperature_min": {
+            "type": "string",
+            "example": "°C"
+          },
+          "sunrise": {
+            "type": "string",
+            "example": "iso8601"
+          },
+          "sunset": {
+            "type": "string",
+            "example": "iso8601"
+          },
+          "precipitation_sum": {
+            "type": "string",
+            "example": "mm"
+          },
+          "rain_sum": {
+            "type": "string",
+            "example": "mm"
+          },
+          "snowfall_sum": {
+            "type": "string",
+            "example": "cm"
+          },
+          "wind_speed_10m_max": {
+            "type": "string",
+            "example": "km/h"
+          },
+          "wind_gusts_10m_max": {
+            "type": "string",
+            "example": "km/h"
+          }
+        }
+      },
+      "DailyWeather": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Array of dates for daily data"
+          },
+          "weather_code": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "Daily WMO weather code"
+          },
+          "temperature_2m_max": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "float"
+            },
+            "description": "Daily maximum temperature at 2 meters above ground"
+          },
+          "temperature_2m_min": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "float"
+            },
+            "description": "Daily minimum temperature at 2 meters above ground"
+          },
+          "apparent_temperature_max": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "float"
+            },
+            "description": "Daily maximum apparent temperature"
+          },
+          "apparent_temperature_min": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "float"
+            },
+            "description": "Daily minimum apparent temperature"
+          },
+          "sunrise": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "description": "Sunrise times"
+          },
+          "sunset": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "description": "Sunset times"
+          },
+          "precipitation_sum": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "float"
+            },
+            "description": "Daily total precipitation"
+          },
+          "rain_sum": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "float"
+            },
+            "description": "Daily total rain"
+          },
+          "snowfall_sum": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "float"
+            },
+            "description": "Daily total snowfall"
+          },
+          "wind_speed_10m_max": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "float"
+            },
+            "description": "Daily maximum wind speed at 10 meters above ground"
+          },
+          "wind_gusts_10m_max": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "float"
+            },
+            "description": "Daily maximum wind gusts at 10 meters above ground"
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "boolean",
+            "example": true
+          },
+          "reason": {
+            "type": "string",
+            "description": "Description of the error"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://api.open-meteo.com"
+      }
+      description: "This API provides comprehensive weather data including current conditions, hourly forecasts, and daily summaries. It includes metrics such as temperature, humidity, wind speed, precipitation, and various other atmospheric parameters."
+      servers: [
+        {
+          description: "Open-Meteo Weather API"
+          url: "https://api.open-meteo.com/v1"
+        }
+      ]
+      title: "Weather Data API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

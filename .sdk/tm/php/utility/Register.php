@@ -1,0 +1,67 @@
+<?php
+declare(strict_types=1);
+
+// WeatherDataApi3 SDK utility registration
+
+require_once __DIR__ . '/../core/UtilityType.php';
+require_once __DIR__ . '/Clean.php';
+require_once __DIR__ . '/Done.php';
+require_once __DIR__ . '/MakeError.php';
+require_once __DIR__ . '/FeatureAdd.php';
+require_once __DIR__ . '/FeatureHook.php';
+require_once __DIR__ . '/FeatureInit.php';
+require_once __DIR__ . '/Fetcher.php';
+require_once __DIR__ . '/MakeFetchDef.php';
+require_once __DIR__ . '/MakeContext.php';
+require_once __DIR__ . '/MakeOptions.php';
+require_once __DIR__ . '/MakeRequest.php';
+require_once __DIR__ . '/MakeResponse.php';
+require_once __DIR__ . '/MakeResult.php';
+require_once __DIR__ . '/MakePoint.php';
+require_once __DIR__ . '/MakeSpec.php';
+require_once __DIR__ . '/MakeUrl.php';
+require_once __DIR__ . '/Param.php';
+require_once __DIR__ . '/PrepareAuth.php';
+require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/PrepareHeaders.php';
+require_once __DIR__ . '/PrepareMethod.php';
+require_once __DIR__ . '/PrepareParams.php';
+require_once __DIR__ . '/PreparePath.php';
+require_once __DIR__ . '/PrepareQuery.php';
+require_once __DIR__ . '/ResultBasic.php';
+require_once __DIR__ . '/ResultBody.php';
+require_once __DIR__ . '/ResultHeaders.php';
+require_once __DIR__ . '/TransformRequest.php';
+require_once __DIR__ . '/TransformResponse.php';
+
+WeatherDataApi3Utility::setRegistrar(function (WeatherDataApi3Utility $u): void {
+    $u->clean = [WeatherDataApi3Clean::class, 'call'];
+    $u->done = [WeatherDataApi3Done::class, 'call'];
+    $u->make_error = [WeatherDataApi3MakeError::class, 'call'];
+    $u->feature_add = [WeatherDataApi3FeatureAdd::class, 'call'];
+    $u->feature_hook = [WeatherDataApi3FeatureHook::class, 'call'];
+    $u->feature_init = [WeatherDataApi3FeatureInit::class, 'call'];
+    $u->fetcher = [WeatherDataApi3Fetcher::class, 'call'];
+    $u->make_fetch_def = [WeatherDataApi3MakeFetchDef::class, 'call'];
+    $u->make_context = [WeatherDataApi3MakeContext::class, 'call'];
+    $u->make_options = [WeatherDataApi3MakeOptions::class, 'call'];
+    $u->make_request = [WeatherDataApi3MakeRequest::class, 'call'];
+    $u->make_response = [WeatherDataApi3MakeResponse::class, 'call'];
+    $u->make_result = [WeatherDataApi3MakeResult::class, 'call'];
+    $u->make_point = [WeatherDataApi3MakePoint::class, 'call'];
+    $u->make_spec = [WeatherDataApi3MakeSpec::class, 'call'];
+    $u->make_url = [WeatherDataApi3MakeUrl::class, 'call'];
+    $u->param = [WeatherDataApi3Param::class, 'call'];
+    $u->prepare_auth = [WeatherDataApi3PrepareAuth::class, 'call'];
+    $u->prepare_body = [WeatherDataApi3PrepareBody::class, 'call'];
+    $u->prepare_headers = [WeatherDataApi3PrepareHeaders::class, 'call'];
+    $u->prepare_method = [WeatherDataApi3PrepareMethod::class, 'call'];
+    $u->prepare_params = [WeatherDataApi3PrepareParams::class, 'call'];
+    $u->prepare_path = [WeatherDataApi3PreparePath::class, 'call'];
+    $u->prepare_query = [WeatherDataApi3PrepareQuery::class, 'call'];
+    $u->result_basic = [WeatherDataApi3ResultBasic::class, 'call'];
+    $u->result_body = [WeatherDataApi3ResultBody::class, 'call'];
+    $u->result_headers = [WeatherDataApi3ResultHeaders::class, 'call'];
+    $u->transform_request = [WeatherDataApi3TransformRequest::class, 'call'];
+    $u->transform_response = [WeatherDataApi3TransformResponse::class, 'call'];
+});

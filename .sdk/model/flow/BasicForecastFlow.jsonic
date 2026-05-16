@@ -1,0 +1,28 @@
+# BasicForecastFlow
+
+main: kit: flow: BasicForecastFlow:
+{
+  entity: "forecast",
+  kind: "basic",
+  name: "BasicForecastFlow",
+  step: [
+    {
+      input: {
+        ref: "forecast_ref01",
+        srcdatavar: "forecast_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-forecast_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicForecastFlow"
+}
