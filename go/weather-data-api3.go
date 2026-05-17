@@ -1,10 +1,10 @@
 package voxgigweatherdataapi3sdk
 
 import (
-	"github.com/voxgig-sdk/weather-data-api3-sdk/core"
-	"github.com/voxgig-sdk/weather-data-api3-sdk/entity"
-	"github.com/voxgig-sdk/weather-data-api3-sdk/feature"
-	_ "github.com/voxgig-sdk/weather-data-api3-sdk/utility"
+	"github.com/voxgig-sdk/weather-data-api3-sdk/go/core"
+	"github.com/voxgig-sdk/weather-data-api3-sdk/go/entity"
+	"github.com/voxgig-sdk/weather-data-api3-sdk/go/feature"
+	_ "github.com/voxgig-sdk/weather-data-api3-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

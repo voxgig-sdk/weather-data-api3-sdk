@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/weather-data-api3-sdk"
+	sdk "github.com/voxgig-sdk/weather-data-api3-sdk/go"
 )
 
 func TestExists(t *testing.T) {

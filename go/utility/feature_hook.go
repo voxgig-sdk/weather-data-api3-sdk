@@ -3,7 +3,7 @@ package utility
 import (
 	"reflect"
 
-	"github.com/voxgig-sdk/weather-data-api3-sdk/core"
+	"github.com/voxgig-sdk/weather-data-api3-sdk/go/core"
 )
 
 func featureHookUtil(ctx *core.Context, name string) {

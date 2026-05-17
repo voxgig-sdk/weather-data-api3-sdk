@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/weather-data-api3-sdk/core"
+	"github.com/voxgig-sdk/weather-data-api3-sdk/go/core"
 )
 
 type BaseFeature struct {

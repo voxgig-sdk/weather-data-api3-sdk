@@ -4,9 +4,9 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/weather-data-api3-sdk"
+	sdk "github.com/voxgig-sdk/weather-data-api3-sdk/go"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/weather-data-api3-sdk/go/utility/struct"
 )
 
 func TestPrimaryUtility(t *testing.T) {
