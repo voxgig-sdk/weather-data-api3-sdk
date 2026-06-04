@@ -106,14 +106,12 @@ func forecastDirectSetup(mockres any) *forecastDirectSetupResult {
 	env := envOverride(map[string]any{
 		"WEATHERDATAAPI__TEST_FORECAST_ENTID": map[string]any{},
 		"WEATHERDATAAPI__TEST_LIVE":    "FALSE",
-		"WEATHERDATAAPI__APIKEY":       "NONE",
 	})
 
 	live := env["WEATHERDATAAPI__TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["WEATHERDATAAPI__APIKEY"],
 		}
 		client := sdk.NewWeatherDataApi3SDK(mergedOpts)
 
