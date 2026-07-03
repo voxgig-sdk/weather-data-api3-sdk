@@ -1,6 +1,11 @@
 # WeatherDataApi3 Python SDK
 
-The Python SDK for the WeatherDataApi3 API. Provides an entity-oriented interface following Pythonic conventions.
+
+
+The Python SDK for the WeatherDataApi3 API — an entity-oriented client following Pythonic conventions.
+
+> Other languages, the CLI, and MCP server live alongside this one — see
+> the [top-level README](../README.md).
 
 
 ## Install
@@ -23,15 +28,18 @@ loading a specific record.
 ### 1. Create a client
 
 ```python
+import os
 from weatherdataapi3_sdk import WeatherDataApi3SDK
 
-client = WeatherDataApi3SDK({})
+client = WeatherDataApi3SDK({
+    "apikey": os.environ.get("WEATHER-DATA-API3_APIKEY"),
+})
 ```
 
 ### 3. Load a forecast
 
 ```python
-result, err = client.Forecast(None).load({"id": "example_id"}, None)
+result, err = client.Forecast().load({"id": "example_id"})
 if err:
     raise Exception(err)
 print(result)
@@ -79,11 +87,9 @@ print(fetchdef["headers"])
 Create a mock client for unit testing — no server required:
 
 ```python
-client = WeatherDataApi3SDK.test(None, None)
+client = WeatherDataApi3SDK.test()
 
-result, err = client.WeatherDataApi3(None).load(
-    {"id": "test01"}, None
-)
+result, err = client.WeatherDataApi3().load({"id": "test01"})
 # result contains mock response data
 ```
 
@@ -114,6 +120,7 @@ Create a `.env.local` file at the project root:
 
 ```
 WEATHER-DATA-API3_TEST_LIVE=TRUE
+WEATHER-DATA-API3_APIKEY=<your-key>
 ```
 
 Then run:
@@ -137,6 +144,7 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
+| `apikey` | `str` | API key for authentication. |
 | `base` | `str` | Base URL of the API server. |
 | `prefix` | `str` | URL path prefix prepended to all requests. |
 | `suffix` | `str` | URL path suffix appended to all requests. |

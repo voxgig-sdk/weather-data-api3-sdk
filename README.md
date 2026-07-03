@@ -1,21 +1,8 @@
 # WeatherDataApi3 SDK
 
-Free weather forecasts and historical weather data from 30+ global and regional models, no API key required
+Weather Data API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Weather Data API
-
-[Open-Meteo](https://open-meteo.com/) is an open-source weather API that aggregates forecasts from 30+ national and global numerical weather models (including ECMWF, GFS, HRRR, DWD ICON, and Meteo-France ARPEGE/AROME) into a single JSON interface. It also exposes ERA5 reanalysis data going back to 1940. No API key or signup is required for the free tier.
-
-What you get from the API:
-
-- Hourly variables: 2m temperature, relative humidity, dewpoint, apparent temperature, precipitation, wind speed and direction at multiple heights, cloud cover, pressure, and solar radiation components.
-- Daily aggregations: min/max temperature, precipitation totals, sunrise and sunset, sunshine duration, wind summaries, and UV index.
-- Current conditions: instantaneous temperature, humidity, apparent temperature, precipitation, weather code, and day/night flag.
-- Location metadata: resolved latitude/longitude, elevation, timezone, and units for every returned variable.
-
-Operational notes: the base server is `https://api.open-meteo.com/v1`, requests are plain HTTP GETs with no auth header, and CORS is enabled for browser use. The free tier permits non-commercial use up to about 10,000 calls per day; commercial or higher-volume usage moves to a paid plan documented on the homepage.
 
 ## Try it
 
@@ -49,27 +36,31 @@ gem install weather-data-api3-sdk
 luarocks install weather-data-api3-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { WeatherDataApi3SDK } from 'weather-data-api3'
 
-const client = new WeatherDataApi3SDK({})
+const client = new WeatherDataApi3SDK({
+  apikey: process.env.WEATHER-DATA-API3_APIKEY,
+})
 
+// Load forecast data
+const forecast = await client.Forecast().load({})
+console.log(forecast.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -99,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Forecast** | Numerical weather predictions for a given latitude/longitude, served from `/v1/forecast` with selectable `hourly`, `daily`, and `current` variable sets and optional timezone handling. | `/forecast` |
+| **Forecast** |  | `/forecast` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -109,15 +100,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from weatherdataapi3_sdk import WeatherDataApi3SDK
 
-client = WeatherDataApi3SDK({})
+client = WeatherDataApi3SDK({
+    "apikey": os.environ.get("WEATHER-DATA-API3_APIKEY"),
+})
 
 
 # Load a specific forecast
-forecast, err = client.Forecast(None).load(
-    {"id": "example_id"}, None
-)
+forecast, err = client.Forecast().load({"id": "example_id"})
+print(forecast)
 ```
 
 ### PHP
@@ -126,13 +119,14 @@ forecast, err = client.Forecast(None).load(
 <?php
 require_once 'weatherdataapi3_sdk.php';
 
-$client = new WeatherDataApi3SDK([]);
+$client = new WeatherDataApi3SDK([
+    "apikey" => getenv("WEATHER-DATA-API3_APIKEY"),
+]);
 
 
 // Load a specific forecast
-[$forecast, $err] = $client->Forecast(null)->load(
-    ["id" => "example_id"], null
-);
+[$forecast, $err] = $client->Forecast()->load(["id" => "example_id"]);
+print_r($forecast);
 ```
 
 ### Golang
@@ -140,8 +134,13 @@ $client = new WeatherDataApi3SDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/weather-data-api3-sdk/go"
 
-client := sdk.NewWeatherDataApi3SDK(map[string]any{})
+client := sdk.NewWeatherDataApi3SDK(map[string]any{
+    "apikey": os.Getenv("WEATHER-DATA-API3_APIKEY"),
+})
 
+// Load forecast data
+forecast, err := client.Forecast(nil).Load(map[string]any{}, nil)
+fmt.Println(forecast)
 ```
 
 ### Ruby
@@ -149,13 +148,14 @@ client := sdk.NewWeatherDataApi3SDK(map[string]any{})
 ```ruby
 require_relative "WeatherDataApi3_sdk"
 
-client = WeatherDataApi3SDK.new({})
+client = WeatherDataApi3SDK.new({
+  "apikey" => ENV["WEATHER-DATA-API3_APIKEY"],
+})
 
 
 # Load a specific forecast
-forecast, err = client.Forecast(nil).load(
-  { "id" => "example_id" }, nil
-)
+forecast, err = client.Forecast().load({ "id" => "example_id" })
+puts forecast
 ```
 
 ### Lua
@@ -163,13 +163,14 @@ forecast, err = client.Forecast(nil).load(
 ```lua
 local sdk = require("weather-data-api3_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("WEATHER-DATA-API3_APIKEY"),
+})
 
 
 -- Load a specific forecast
-local forecast, err = client:Forecast(nil):load(
-  { id = "example_id" }, nil
-)
+local forecast, err = client:Forecast():load({ id = "example_id" })
+print(forecast)
 ```
 
 ## Unit testing in offline mode
@@ -188,25 +189,21 @@ const result = await client.Forecast().load({ id: 'test01' })
 ### Python
 
 ```python
-client = WeatherDataApi3SDK.test(None, None)
-result, err = client.Forecast(None).load(
-    {"id": "test01"}, None
-)
+client = WeatherDataApi3SDK.test()
+result, err = client.Forecast().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = WeatherDataApi3SDK::test(null, null);
-[$result, $err] = $client->Forecast(null)->load(
-    ["id" => "test01"], null
-);
+$client = WeatherDataApi3SDK::test();
+[$result, $err] = $client->Forecast()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Forecast(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -215,19 +212,15 @@ result, err := client.Forecast(nil).Load(
 ### Ruby
 
 ```ruby
-client = WeatherDataApi3SDK.test(nil, nil)
-result, err = client.Forecast(nil).load(
-  { "id" => "test01" }, nil
-)
+client = WeatherDataApi3SDK.test
+result, err = client.Forecast().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Forecast(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Forecast():load({ id = "test01" })
 ```
 
 ## How it works
@@ -331,16 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Weather Data API
-
-- Upstream: [https://open-meteo.com/](https://open-meteo.com/)
-- API docs: [https://open-meteo.com/en/docs](https://open-meteo.com/en/docs)
-
-- Weather data is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — free to use and redistribute, including commercially, with attribution.
-- Attribution to Open-Meteo (and, where applicable, the originating weather services such as DWD, ECMWF, NOAA, Meteo-France) is required.
-- The server software itself is released under AGPLv3.
-- Non-commercial use is free up to roughly 10,000 API calls per day; higher volumes and commercial use require a paid plan.
 
 ---
 

@@ -16,28 +16,7 @@ main: {
       ]
       title: "Weather Data API"
       version: "1.0.0"
-      tagline: "Free weather forecasts and historical weather data from 30+ global and regional models, no API key required"
-      homepage: "https://open-meteo.com/"
-      docs_url: "https://open-meteo.com/en/docs"
-      license_short: "Data under CC BY 4.0; attribution to Open-Meteo and the underlying weather services is required."
-      license_md: `- Weather data is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — free to use and redistribute, including commercially, with attribution.
-- Attribution to Open-Meteo (and, where applicable, the originating weather services such as DWD, ECMWF, NOAA, Meteo-France) is required.
-- The server software itself is released under AGPLv3.
-- Non-commercial use is free up to roughly 10,000 API calls per day; higher volumes and commercial use require a paid plan.`
-      about_md: `[Open-Meteo](https://open-meteo.com/) is an open-source weather API that aggregates forecasts from 30+ national and global numerical weather models (including ECMWF, GFS, HRRR, DWD ICON, and Meteo-France ARPEGE/AROME) into a single JSON interface. It also exposes ERA5 reanalysis data going back to 1940. No API key or signup is required for the free tier.
-
-What you get from the API:
-
-- Hourly variables: 2m temperature, relative humidity, dewpoint, apparent temperature, precipitation, wind speed and direction at multiple heights, cloud cover, pressure, and solar radiation components.
-- Daily aggregations: min/max temperature, precipitation totals, sunrise and sunset, sunshine duration, wind summaries, and UV index.
-- Current conditions: instantaneous temperature, humidity, apparent temperature, precipitation, weather code, and day/night flag.
-- Location metadata: resolved latitude/longitude, elevation, timezone, and units for every returned variable.
-
-Operational notes: the base server is \`https://api.open-meteo.com/v1\`, requests are plain HTTP GETs with no auth header, and CORS is enabled for browser use. The free tier permits non-commercial use up to about 10,000 calls per day; commercial or higher-volume usage moves to a paid plan documented on the homepage.`
-      entity_desc: {
-        forecast: "Numerical weather predictions for a given latitude/longitude, served from `/v1/forecast` with selectable `hourly`, `daily`, and `current` variable sets and optional timezone handling."
-      }
-      auth: false
     }
   }
 }
+
