@@ -10,13 +10,13 @@ The Ruby SDK for the WeatherDataApi3 API — an entity-oriented client using idi
 
 ## Install
 ```bash
-gem install weather-data-api3-sdk
+gem install voxgig-sdk-weather-data-api3
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "weather-data-api3-sdk"
+gem "voxgig-sdk-weather-data-api3"
 ```
 
 Then run:

@@ -8,12 +8,14 @@ source = {
   dir = "weather-data-api3-sdk/lua"
 }
 description = {
-  summary = "WeatherDataApi3 SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the Weather Data public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/weather-data-api3-sdk",
+  issues_url = "https://github.com/voxgig-sdk/weather-data-api3-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "weather-data-api3" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {
