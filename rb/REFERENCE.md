@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## ForecastEntity
 
 ```ruby
-forecast = client.forecast
+forecast = client.Forecast
 ```
 
 ### Fields
@@ -114,7 +114,7 @@ forecast = client.forecast
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.forecast.load({ "id" => "forecast_id" })
+result = client.Forecast.load({ "id" => "forecast_id" })
 ```
 
 ### Common Methods

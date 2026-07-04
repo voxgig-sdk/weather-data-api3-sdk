@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## ForecastEntity
 
 ```python
-forecast = client.forecast
+forecast = client.Forecast()
 ```
 
 ### Fields
@@ -108,7 +108,7 @@ forecast = client.forecast
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.forecast.load({"id": "forecast_id"})
+result = client.Forecast().load({"id": "forecast_id"})
 ```
 
 ### Common Methods

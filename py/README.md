@@ -33,10 +33,12 @@ client = WeatherDataApi3SDK()
 
 ### 3. Load a forecast
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.forecast.load({"id": "example_id"})
-    print(result)
+    forecast = client.Forecast().load({"id": "example_id"})
+    print(forecast)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = WeatherDataApi3SDK.test()
 
-result = client.forecast.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+forecast = client.Forecast().load({"id": "test01"})
+# forecast contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -230,7 +233,7 @@ API path: `/forecast`
 
 ### Forecast
 
-Create an instance: `const forecast = client.forecast`
+Create an instance: `forecast = client.Forecast()`
 
 #### Operations
 
@@ -258,8 +261,8 @@ Create an instance: `const forecast = client.forecast`
 
 #### Example: Load
 
-```ts
-const forecast = await client.forecast.load({ id: 'forecast_id' })
+```python
+forecast = client.Forecast().load({"id": "forecast_id"})
 ```
 
 
@@ -333,7 +336,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-forecast = client.forecast
+forecast = client.Forecast()
 forecast.load({"id": "example_id"})
 
 # forecast.data_get() now returns the loaded forecast data

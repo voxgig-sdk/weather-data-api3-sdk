@@ -109,7 +109,7 @@ Alias for `WeatherDataApi3SDK.test()`.
 ## ForecastEntity
 
 ```ts
-const forecast = client.forecast
+const forecast = client.Forecast()
 ```
 
 ### Fields
@@ -137,7 +137,7 @@ const forecast = client.forecast
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.forecast.load({ id: 'forecast_id' })
+const result = await client.Forecast().load({ id: 'forecast_id' })
 ```
 
 ### Common Methods
