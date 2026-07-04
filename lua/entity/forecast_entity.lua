@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch ForecastLoadMatch
+---@param ctrl? table
+---@return Forecast
+---@return string? err
 function ForecastEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

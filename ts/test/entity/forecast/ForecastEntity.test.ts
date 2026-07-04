@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'WEATHER_DATA_API__TEST_FORECAST_ENTID': idmap,
     'WEATHER_DATA_API__TEST_LIVE': 'FALSE',
     'WEATHER_DATA_API__TEST_EXPLAIN': 'FALSE',
-    'WEATHER_DATA_API__APIKEY': 'NONE',
   })
 
   idmap = env['WEATHER_DATA_API__TEST_FORECAST_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new WeatherDataApi3SDK(merge([
       {
-        apikey: env.WEATHER_DATA_API__APIKEY,
       },
       extra
     ]))

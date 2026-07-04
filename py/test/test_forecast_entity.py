@@ -49,8 +49,7 @@ class TestForecastEntity:
         # LOAD
         forecast_ref01_ent = client.Forecast(None)
         forecast_ref01_match_dt0 = {}
-        forecast_ref01_data_dt0_loaded, err = forecast_ref01_ent.load(forecast_ref01_match_dt0, None)
-        assert err is None
+        forecast_ref01_data_dt0_loaded = forecast_ref01_ent.load(forecast_ref01_match_dt0, None)
         assert forecast_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _forecast_basic_setup(extra):
         "WEATHERDATAAPI__TEST_FORECAST_ENTID": idmap,
         "WEATHERDATAAPI__TEST_LIVE": "FALSE",
         "WEATHERDATAAPI__TEST_EXPLAIN": "FALSE",
-        "WEATHERDATAAPI__APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _forecast_basic_setup(extra):
     if env.get("WEATHERDATAAPI__TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("WEATHERDATAAPI__APIKEY"),
             },
             extra or {},
         ])

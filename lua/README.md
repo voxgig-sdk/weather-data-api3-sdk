@@ -9,12 +9,9 @@ The Lua SDK for the WeatherDataApi3 API — an entity-oriented client using Lua 
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-weather-data-api3
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/weather-data-api3-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("weather-data-api3_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("WEATHER-DATA-API3_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 3. Load a forecast
 
 ```lua
-local result, err = client:Forecast():load({ id = "example_id" })
+local result, err = client:forecast():load({ id = "example_id" })
 if err then error(err) end
 print(result)
 ```
@@ -87,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:WeatherDataApi3():load({ id = "test01" })
+local result, err = client:forecast():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -120,8 +115,7 @@ local client = sdk.new({
 Create a `.env.local` file at the project root:
 
 ```
-WEATHER-DATA-API3_TEST_LIVE=TRUE
-WEATHER-DATA-API3_APIKEY=<your-key>
+WEATHER_DATA_API3_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -144,7 +138,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -233,7 +226,7 @@ API path: `/forecast`
 
 ### Forecast
 
-Create an instance: `const forecast = client.Forecast()`
+Create an instance: `const forecast = client.forecast`
 
 #### Operations
 
@@ -262,7 +255,7 @@ Create an instance: `const forecast = client.Forecast()`
 #### Example: Load
 
 ```ts
-const forecast = await client.Forecast().load({ id: 'forecast_id' })
+const forecast = await client.forecast.load({ id: 'forecast_id' })
 ```
 
 
@@ -337,11 +330,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local forecast = client:forecast()
+forecast:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- forecast:data_get() now returns the loaded forecast data
+-- forecast:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

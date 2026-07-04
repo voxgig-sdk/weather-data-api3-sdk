@@ -20,9 +20,6 @@ class WeatherDataApi3Config
             ],
             "options" => [
                 "base" => "https://api.open-meteo.com/v1",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],

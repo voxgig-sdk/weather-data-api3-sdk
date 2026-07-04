@@ -245,6 +245,9 @@ func (sdk *WeatherDataApi3SDK) Direct(fetchargs map[string]any) (map[string]any,
 }
 
 
+// Forecast returns a Forecast entity bound to this client.
+// Idiomatic usage: client.Forecast(nil).List(nil, nil) or
+// client.Forecast(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *WeatherDataApi3SDK) Forecast(data map[string]any) WeatherDataApi3Entity {
 	return NewForecastEntityFunc(sdk, data)
 }

@@ -10,14 +10,18 @@ The Golang SDK for the WeatherDataApi3 API — an entity-oriented client using s
 
 ## Install
 ```bash
-go get github.com/voxgig-sdk/weather-data-api3-sdk/go
+go get github.com/voxgig-sdk/weather-data-api3-sdk/go@latest
 ```
 
-If the module is not yet published to a registry, use a `replace` directive
-in your `go.mod` to point to a local checkout:
+The Go module proxy resolves the version from the `go/vX.Y.Z` GitHub
+release tag — see [Releases](https://github.com/voxgig-sdk/weather-data-api3-sdk/releases) for the available versions.
+
+To vendor from a local checkout instead, clone this repo alongside your
+project and add a `replace` directive pointing at the checked-out
+`go/` directory:
 
 ```bash
-go mod edit -replace github.com/voxgig-sdk/weather-data-api3-sdk/go=../path/to/github.com/voxgig-sdk/weather-data-api3-sdk/go
+go mod edit -replace github.com/voxgig-sdk/weather-data-api3-sdk/go=../weather-data-api3-sdk/go
 ```
 
 
@@ -33,16 +37,13 @@ package main
 
 import (
     "fmt"
-    "os"
 
     sdk "github.com/voxgig-sdk/weather-data-api3-sdk/go"
     "github.com/voxgig-sdk/weather-data-api3-sdk/go/core"
 )
 
 func main() {
-    client := sdk.NewWeatherDataApi3SDK(map[string]any{
-        "apikey": os.Getenv("WEATHER-DATA-API3_APIKEY"),
-    })
+    client := sdk.New()
 ```
 
 ### 3. Load a forecast
@@ -109,7 +110,7 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-result, err := client.Planet(nil).Load(
+result, err := client.Forecast(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
 // result contains mock response data
@@ -144,8 +145,7 @@ client := sdk.NewWeatherDataApi3SDK(map[string]any{
 Create a `.env.local` file at the project root:
 
 ```
-WEATHER-DATA-API3_TEST_LIVE=TRUE
-WEATHER-DATA-API3_APIKEY=<your-key>
+WEATHER_DATA_API3_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -167,7 +167,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `"apikey"` | `string` | API key for authentication. |
 | `"base"` | `string` | Base URL of the API server. |
 | `"prefix"` | `string` | URL path prefix prepended to all requests. |
 | `"suffix"` | `string` | URL path suffix appended to all requests. |
@@ -356,11 +355,11 @@ Entity instances are stateful. After a successful `Load`, the entity
 stores the returned data and match criteria internally.
 
 ```go
-moon := client.Moon(nil)
-moon.Load(map[string]any{"planet_id": "earth", "id": "luna"}, nil)
+forecast := client.Forecast(nil)
+forecast.Load(map[string]any{"id": "example_id"}, nil)
 
-// moon.Data() now returns the loaded moon data
-// moon.Match() returns the last match criteria
+// forecast.Data() now returns the loaded forecast data
+// forecast.Match() returns the last match criteria
 ```
 
 Call `Make()` to create a fresh instance with the same configuration

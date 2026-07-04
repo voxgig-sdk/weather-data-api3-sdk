@@ -2,6 +2,8 @@
 
 import { ForecastEntity } from './entity/ForecastEntity'
 
+export type * from './WeatherDataApi3Types'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class WeatherDataApi3SDK {
 
 
 
+  _forecast?: ForecastEntity
+
+  // Idiomatic facade: `client.forecast.list()` / `client.forecast.load({ id })`.
+  get forecast(): ForecastEntity {
+    return (this._forecast ??= new ForecastEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.forecast` instead. */
   Forecast(data?: any) {
     const self = this
     return new ForecastEntity(self,data)
