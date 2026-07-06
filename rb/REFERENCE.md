@@ -8,7 +8,7 @@ Complete API reference for the WeatherDataApi3 Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'weather-data-api3_sdk'
+require_relative 'WeatherDataApi3_sdk'
 
 client = WeatherDataApi3SDK.new(options)
 ```
@@ -93,19 +93,19 @@ forecast = client.Forecast
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `current` | ``$OBJECT`` | No |  |
-| `current_unit` | ``$OBJECT`` | No |  |
-| `daily` | ``$OBJECT`` | No |  |
-| `daily_unit` | ``$OBJECT`` | No |  |
-| `elevation` | ``$NUMBER`` | No |  |
-| `generationtime_m` | ``$NUMBER`` | No |  |
-| `hourly` | ``$OBJECT`` | No |  |
-| `hourly_unit` | ``$OBJECT`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `timezone` | ``$STRING`` | No |  |
-| `timezone_abbreviation` | ``$STRING`` | No |  |
-| `utc_offset_second` | ``$INTEGER`` | No |  |
+| `current` | `Hash` | No |  |
+| `current_unit` | `Hash` | No |  |
+| `daily` | `Hash` | No |  |
+| `daily_unit` | `Hash` | No |  |
+| `elevation` | `Float` | No |  |
+| `generationtime_m` | `Float` | No |  |
+| `hourly` | `Hash` | No |  |
+| `hourly_unit` | `Hash` | No |  |
+| `latitude` | `Float` | No |  |
+| `longitude` | `Float` | No |  |
+| `timezone` | `String` | No |  |
+| `timezone_abbreviation` | `String` | No |  |
+| `utc_offset_second` | `Integer` | No |  |
 
 ### Operations
 
@@ -114,7 +114,7 @@ forecast = client.Forecast
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Forecast.load({ "id" => "forecast_id" })
+result = client.Forecast.load()
 ```
 
 ### Common Methods

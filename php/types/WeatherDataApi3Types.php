@@ -30,7 +30,7 @@ class Forecast
     public ?int $utc_offset_second = null;
 }
 
-/** Match filter for Forecast#load (any subset of Forecast fields). */
+/** Request payload for Forecast#load. */
 class ForecastLoadMatch
 {
     public ?array $current = null;

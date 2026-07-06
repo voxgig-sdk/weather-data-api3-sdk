@@ -8,7 +8,7 @@ Complete API reference for the WeatherDataApi3 Python SDK.
 ### Constructor
 
 ```python
-from weather-data-api3_sdk import WeatherDataApi3SDK
+from weatherdataapi3_sdk import WeatherDataApi3SDK
 
 client = WeatherDataApi3SDK(options)
 ```
@@ -87,19 +87,19 @@ forecast = client.Forecast()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `current` | ``$OBJECT`` | No |  |
-| `current_unit` | ``$OBJECT`` | No |  |
-| `daily` | ``$OBJECT`` | No |  |
-| `daily_unit` | ``$OBJECT`` | No |  |
-| `elevation` | ``$NUMBER`` | No |  |
-| `generationtime_m` | ``$NUMBER`` | No |  |
-| `hourly` | ``$OBJECT`` | No |  |
-| `hourly_unit` | ``$OBJECT`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `timezone` | ``$STRING`` | No |  |
-| `timezone_abbreviation` | ``$STRING`` | No |  |
-| `utc_offset_second` | ``$INTEGER`` | No |  |
+| `current` | `dict` | No |  |
+| `current_unit` | `dict` | No |  |
+| `daily` | `dict` | No |  |
+| `daily_unit` | `dict` | No |  |
+| `elevation` | `float` | No |  |
+| `generationtime_m` | `float` | No |  |
+| `hourly` | `dict` | No |  |
+| `hourly_unit` | `dict` | No |  |
+| `latitude` | `float` | No |  |
+| `longitude` | `float` | No |  |
+| `timezone` | `str` | No |  |
+| `timezone_abbreviation` | `str` | No |  |
+| `utc_offset_second` | `int` | No |  |
 
 ### Operations
 
@@ -108,7 +108,7 @@ forecast = client.Forecast()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Forecast().load({"id": "forecast_id"})
+result = client.Forecast().load()
 ```
 
 ### Common Methods

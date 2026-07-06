@@ -8,7 +8,7 @@ Complete API reference for the WeatherDataApi3 PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/weather-data-api3_sdk.php';
+require_once __DIR__ . '/weatherdataapi3_sdk.php';
 
 $client = new WeatherDataApi3SDK($options);
 ```
@@ -45,11 +45,11 @@ $client = WeatherDataApi3SDK::test();
 
 Create a new `ForecastEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): WeatherDataApi3Utility`
 
 Return a copy of the SDK utility object.
 
@@ -92,19 +92,19 @@ $forecast = $client->Forecast();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `current` | ``$OBJECT`` | No |  |
-| `current_unit` | ``$OBJECT`` | No |  |
-| `daily` | ``$OBJECT`` | No |  |
-| `daily_unit` | ``$OBJECT`` | No |  |
-| `elevation` | ``$NUMBER`` | No |  |
-| `generationtime_m` | ``$NUMBER`` | No |  |
-| `hourly` | ``$OBJECT`` | No |  |
-| `hourly_unit` | ``$OBJECT`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `timezone` | ``$STRING`` | No |  |
-| `timezone_abbreviation` | ``$STRING`` | No |  |
-| `utc_offset_second` | ``$INTEGER`` | No |  |
+| `current` | `array` | No |  |
+| `current_unit` | `array` | No |  |
+| `daily` | `array` | No |  |
+| `daily_unit` | `array` | No |  |
+| `elevation` | `float` | No |  |
+| `generationtime_m` | `float` | No |  |
+| `hourly` | `array` | No |  |
+| `hourly_unit` | `array` | No |  |
+| `latitude` | `float` | No |  |
+| `longitude` | `float` | No |  |
+| `timezone` | `string` | No |  |
+| `timezone_abbreviation` | `string` | No |  |
+| `utc_offset_second` | `int` | No |  |
 
 ### Operations
 
@@ -113,24 +113,24 @@ $forecast = $client->Forecast();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Forecast()->load(["id" => "forecast_id"]);
+$result = $client->Forecast()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -139,7 +139,7 @@ Set the entity match criteria.
 Create a new `ForecastEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

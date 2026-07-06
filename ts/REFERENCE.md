@@ -116,19 +116,19 @@ const forecast = client.Forecast()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `current` | ``$OBJECT`` | No |  |
-| `current_unit` | ``$OBJECT`` | No |  |
-| `daily` | ``$OBJECT`` | No |  |
-| `daily_unit` | ``$OBJECT`` | No |  |
-| `elevation` | ``$NUMBER`` | No |  |
-| `generationtime_m` | ``$NUMBER`` | No |  |
-| `hourly` | ``$OBJECT`` | No |  |
-| `hourly_unit` | ``$OBJECT`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `timezone` | ``$STRING`` | No |  |
-| `timezone_abbreviation` | ``$STRING`` | No |  |
-| `utc_offset_second` | ``$INTEGER`` | No |  |
+| `current` | `Record<string, any>` | No |  |
+| `current_unit` | `Record<string, any>` | No |  |
+| `daily` | `Record<string, any>` | No |  |
+| `daily_unit` | `Record<string, any>` | No |  |
+| `elevation` | `number` | No |  |
+| `generationtime_m` | `number` | No |  |
+| `hourly` | `Record<string, any>` | No |  |
+| `hourly_unit` | `Record<string, any>` | No |  |
+| `latitude` | `number` | No |  |
+| `longitude` | `number` | No |  |
+| `timezone` | `string` | No |  |
+| `timezone_abbreviation` | `string` | No |  |
+| `utc_offset_second` | `number` | No |  |
 
 ### Operations
 
@@ -137,7 +137,7 @@ const forecast = client.Forecast()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Forecast().load({ id: 'forecast_id' })
+const result = await client.Forecast().load()
 ```
 
 ### Common Methods

@@ -25,8 +25,7 @@ type Forecast struct {
 	UtcOffsetSecond *int `json:"utc_offset_second,omitempty"`
 }
 
-// ForecastLoadMatch mirrors the forecast fields as an all-optional match
-// filter (Go analog of Partial<Forecast>).
+// ForecastLoadMatch is the typed request payload for Forecast.LoadTyped.
 type ForecastLoadMatch struct {
 	Current *map[string]any `json:"current,omitempty"`
 	CurrentUnit *map[string]any `json:"current_unit,omitempty"`

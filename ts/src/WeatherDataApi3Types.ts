@@ -21,5 +21,19 @@ export interface Forecast {
   utc_offset_second?: number
 }
 
-export type ForecastLoadMatch = Partial<Forecast>
+export interface ForecastLoadMatch {
+  current?: Record<string, any>
+  current_unit?: Record<string, any>
+  daily?: Record<string, any>
+  daily_unit?: Record<string, any>
+  elevation?: number
+  generationtime_m?: number
+  hourly?: Record<string, any>
+  hourly_unit?: Record<string, any>
+  latitude?: number
+  longitude?: number
+  timezone?: string
+  timezone_abbreviation?: string
+  utc_offset_second?: number
+}
 
