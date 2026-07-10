@@ -15,9 +15,9 @@ main: {
           url: "https://api.open-meteo.com/v1"
         }
       ]
+      summary: "This API provides comprehensive weather data including current conditions, hourly forecasts, and daily summaries."
       title: "Weather Data API"
       version: "1.0.0"
+      website: "https://open-meteo.com"
     }
   }
-}
-

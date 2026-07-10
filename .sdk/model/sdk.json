@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -332,14 +329,17 @@
           "url": "https://api.open-meteo.com"
         },
         "description": "This API provides comprehensive weather data including current conditions, hourly forecasts, and daily summaries. It includes metrics such as temperature, humidity, wind speed, precipitation, and various other atmospheric parameters.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Open-Meteo Weather API",
             "url": "https://api.open-meteo.com/v1"
           }
         ],
+        "summary": "This API provides comprehensive weather data including current conditions, hourly forecasts, and daily summaries.",
         "title": "Weather Data API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://open-meteo.com"
       },
       "option": {},
       "target": {
@@ -392,6 +392,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -442,6 +445,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
