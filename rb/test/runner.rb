@@ -23,8 +23,8 @@ module WeatherDataApi3TestRunner
   end
 
   def self.env_override(m)
-    live = getenv("WEATHERDATAAPI3_TEST_LIVE")
-    override = getenv("WEATHERDATAAPI3_TEST_OVERRIDE")
+    live = getenv("WEATHER_DATA_API3_TEST_LIVE")
+    override = getenv("WEATHER_DATA_API3_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module WeatherDataApi3TestRunner
       end
     end
 
-    explain = getenv("WEATHERDATAAPI3_TEST_EXPLAIN")
-    m["WEATHERDATAAPI3_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("WEATHER_DATA_API3_TEST_EXPLAIN")
+    m["WEATHER_DATA_API3_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

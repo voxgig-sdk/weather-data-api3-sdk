@@ -93,18 +93,18 @@ $forecast = $client->Forecast();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `current` | `array` | No |  |
-| `current_unit` | `array` | No |  |
+| `current_units` | `array` | No |  |
 | `daily` | `array` | No |  |
-| `daily_unit` | `array` | No |  |
+| `daily_units` | `array` | No |  |
 | `elevation` | `float` | No |  |
-| `generationtime_m` | `float` | No |  |
+| `generationtime_ms` | `float` | No |  |
 | `hourly` | `array` | No |  |
-| `hourly_unit` | `array` | No |  |
+| `hourly_units` | `array` | No |  |
 | `latitude` | `float` | No |  |
 | `longitude` | `float` | No |  |
 | `timezone` | `string` | No |  |
 | `timezone_abbreviation` | `string` | No |  |
-| `utc_offset_second` | `int` | No |  |
+| `utc_offset_seconds` | `int` | No |  |
 
 ### Operations
 

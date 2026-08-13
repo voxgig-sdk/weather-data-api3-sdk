@@ -34,7 +34,7 @@ client = WeatherDataApi3SDK.new
 
 ```ruby
 begin
-  # load returns the bare Forecast record (raises on error).
+  # load returns the ENTITY — call data_get for the Forecast record (raises on error).
   forecast = client.Forecast.load()
   puts forecast
 rescue => err
@@ -117,7 +117,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = WeatherDataApi3SDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 forecast = client.Forecast.load()
 puts forecast
 ```
@@ -235,18 +236,18 @@ returns a result `Hash` with these keys:
 | Field | Description |
 | --- | --- |
 | `current` |  |
-| `current_unit` |  |
+| `current_units` |  |
 | `daily` |  |
-| `daily_unit` |  |
+| `daily_units` |  |
 | `elevation` |  |
-| `generationtime_m` |  |
+| `generationtime_ms` |  |
 | `hourly` |  |
-| `hourly_unit` |  |
+| `hourly_units` |  |
 | `latitude` |  |
 | `longitude` |  |
 | `timezone` |  |
 | `timezone_abbreviation` |  |
-| `utc_offset_second` |  |
+| `utc_offset_seconds` |  |
 
 Operations: Load.
 
@@ -272,23 +273,23 @@ Create an instance: `forecast = client.Forecast`
 | Field | Type | Description |
 | --- | --- | --- |
 | `current` | `Hash` |  |
-| `current_unit` | `Hash` |  |
+| `current_units` | `Hash` |  |
 | `daily` | `Hash` |  |
-| `daily_unit` | `Hash` |  |
+| `daily_units` | `Hash` |  |
 | `elevation` | `Float` |  |
-| `generationtime_m` | `Float` |  |
+| `generationtime_ms` | `Float` |  |
 | `hourly` | `Hash` |  |
-| `hourly_unit` | `Hash` |  |
+| `hourly_units` | `Hash` |  |
 | `latitude` | `Float` |  |
 | `longitude` | `Float` |  |
 | `timezone` | `String` |  |
 | `timezone_abbreviation` | `String` |  |
-| `utc_offset_second` | `Integer` |  |
+| `utc_offset_seconds` | `Integer` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Forecast record (raises on error).
+# load returns the ENTITY — call data_get for the Forecast record (raises on error).
 forecast = client.Forecast.load()
 ```
 

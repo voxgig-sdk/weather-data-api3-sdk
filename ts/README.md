@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = WeatherDataApi3SDK.test()
 
 const forecast = await client.Forecast().load()
-// forecast is a bare entity populated with mock response data
+// forecast is the entity, populated with mock response data
+// — call forecast.data() for the record itself
 console.log(forecast)
 ```
 
@@ -285,18 +286,18 @@ The `prepare()` method returns:
 | Field | Description |
 | --- | --- |
 | `current` |  |
-| `current_unit` |  |
+| `current_units` |  |
 | `daily` |  |
-| `daily_unit` |  |
+| `daily_units` |  |
 | `elevation` |  |
-| `generationtime_m` |  |
+| `generationtime_ms` |  |
 | `hourly` |  |
-| `hourly_unit` |  |
+| `hourly_units` |  |
 | `latitude` |  |
 | `longitude` |  |
 | `timezone` |  |
 | `timezone_abbreviation` |  |
-| `utc_offset_second` |  |
+| `utc_offset_seconds` |  |
 
 Operations: load.
 
@@ -322,18 +323,18 @@ Create an instance: `const forecast = client.Forecast()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `current` | `Record<string, any>` |  |
-| `current_unit` | `Record<string, any>` |  |
+| `current_units` | `Record<string, any>` |  |
 | `daily` | `Record<string, any>` |  |
-| `daily_unit` | `Record<string, any>` |  |
+| `daily_units` | `Record<string, any>` |  |
 | `elevation` | `number` |  |
-| `generationtime_m` | `number` |  |
+| `generationtime_ms` | `number` |  |
 | `hourly` | `Record<string, any>` |  |
-| `hourly_unit` | `Record<string, any>` |  |
+| `hourly_units` | `Record<string, any>` |  |
 | `latitude` | `number` |  |
 | `longitude` | `number` |  |
 | `timezone` | `string` |  |
 | `timezone_abbreviation` | `string` |  |
-| `utc_offset_second` | `number` |  |
+| `utc_offset_seconds` | `number` |  |
 
 #### Example: Load
 

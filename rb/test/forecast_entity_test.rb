@@ -26,7 +26,7 @@ class ForecastEntityTest < Minitest::Test
     # The basic flow consumes synthetic IDs from the fixture. In live mode
     # without an *_ENTID env override, those IDs hit the live API and 4xx.
     if setup[:synthetic_only]
-      skip "live entity test uses synthetic IDs from fixture — set WEATHERDATAAPI__TEST_FORECAST_ENTID JSON to run live"
+      skip "live entity test uses synthetic IDs from fixture — set WEATHER_DATA_API3_TEST_FORECAST_ENTID JSON to run live"
       return
     end
     client = setup[:client]
@@ -74,22 +74,22 @@ def forecast_basic_setup(extra)
   # Detect ENTID env override before envOverride consumes it. When live
   # mode is on without a real override, the basic test runs against synthetic
   # IDs from the fixture and 4xx's. Surface this so the test can skip.
-  entid_env_raw = ENV["WEATHERDATAAPI__TEST_FORECAST_ENTID"]
+  entid_env_raw = ENV["WEATHER_DATA_API3_TEST_FORECAST_ENTID"]
   idmap_overridden = !entid_env_raw.nil? && entid_env_raw.strip.start_with?("{")
 
   env = Runner.env_override({
-    "WEATHERDATAAPI__TEST_FORECAST_ENTID" => idmap,
-    "WEATHERDATAAPI__TEST_LIVE" => "FALSE",
-    "WEATHERDATAAPI__TEST_EXPLAIN" => "FALSE",
+    "WEATHER_DATA_API3_TEST_FORECAST_ENTID" => idmap,
+    "WEATHER_DATA_API3_TEST_LIVE" => "FALSE",
+    "WEATHER_DATA_API3_TEST_EXPLAIN" => "FALSE",
   })
 
   idmap_resolved = Helpers.to_map(
-    env["WEATHERDATAAPI__TEST_FORECAST_ENTID"])
+    env["WEATHER_DATA_API3_TEST_FORECAST_ENTID"])
   if idmap_resolved.nil?
     idmap_resolved = Helpers.to_map(idmap)
   end
 
-  if env["WEATHERDATAAPI__TEST_LIVE"] == "TRUE"
+  if env["WEATHER_DATA_API3_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
       },
@@ -98,13 +98,13 @@ def forecast_basic_setup(extra)
     client = WeatherDataApi3SDK.new(Helpers.to_map(merged_opts))
   end
 
-  live = env["WEATHERDATAAPI__TEST_LIVE"] == "TRUE"
+  live = env["WEATHER_DATA_API3_TEST_LIVE"] == "TRUE"
   {
     client: client,
     data: entity_data,
     idmap: idmap_resolved,
     env: env,
-    explain: env["WEATHERDATAAPI__TEST_EXPLAIN"] == "TRUE",
+    explain: env["WEATHER_DATA_API3_TEST_EXPLAIN"] == "TRUE",
     live: live,
     synthetic_only: live && !idmap_overridden,
     now: (Time.now.to_f * 1000).to_i,

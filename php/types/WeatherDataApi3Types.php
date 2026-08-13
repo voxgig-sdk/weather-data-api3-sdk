@@ -16,35 +16,35 @@ declare(strict_types=1);
 class Forecast
 {
     public ?array $current = null;
-    public ?array $current_unit = null;
+    public ?array $current_units = null;
     public ?array $daily = null;
-    public ?array $daily_unit = null;
+    public ?array $daily_units = null;
     public ?float $elevation = null;
-    public ?float $generationtime_m = null;
+    public ?float $generationtime_ms = null;
     public ?array $hourly = null;
-    public ?array $hourly_unit = null;
+    public ?array $hourly_units = null;
     public ?float $latitude = null;
     public ?float $longitude = null;
     public ?string $timezone = null;
     public ?string $timezone_abbreviation = null;
-    public ?int $utc_offset_second = null;
+    public ?int $utc_offset_seconds = null;
 }
 
 /** Request payload for Forecast#load. */
 class ForecastLoadMatch
 {
     public ?array $current = null;
-    public ?array $current_unit = null;
+    public ?array $current_units = null;
     public ?array $daily = null;
-    public ?array $daily_unit = null;
+    public ?array $daily_units = null;
     public ?float $elevation = null;
-    public ?float $generationtime_m = null;
+    public ?float $generationtime_ms = null;
     public ?array $hourly = null;
-    public ?array $hourly_unit = null;
+    public ?array $hourly_units = null;
     public ?float $latitude = null;
     public ?float $longitude = null;
     public ?string $timezone = null;
     public ?string $timezone_abbreviation = null;
-    public ?int $utc_offset_second = null;
+    public ?int $utc_offset_seconds = null;
 }
 

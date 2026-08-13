@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = WeatherDataApi3SDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = WeatherDataApi3SDK.test({
+  entity: {
+    forecast: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const forecast = await client.Forecast().load()
-// forecast is a bare Forecast populated with mock data
+// forecast is the Forecast entity, populated with mock data
+// — call forecast.data() for the record itself
 console.log(forecast)
 ```
 
@@ -182,7 +191,7 @@ require_once 'weatherdataapi3_sdk.php';
 $client = new WeatherDataApi3SDK();
 
 
-// Load a specific forecast (returns the bare record; throws on error)
+// Load a specific forecast (returns the ENTITY; call data_get() for the record; throws on error)
 $forecast = $client->Forecast()->load();
 print_r($forecast);
 ```
@@ -210,7 +219,7 @@ require_relative "WeatherDataApi3_sdk"
 client = WeatherDataApi3SDK.new
 
 
-# Load a specific forecast (returns the bare record; raises on error)
+# Load a specific forecast (returns the ENTITY; call data_get for the record)
 forecast = client.Forecast.load()
 puts forecast
 ```
@@ -344,6 +353,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://api.open-meteo.com](https://api.open-meteo.com)
 

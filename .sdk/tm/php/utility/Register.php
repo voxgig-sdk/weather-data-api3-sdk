@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ WeatherDataApi3Utility::setRegistrar(function (WeatherDataApi3Utility $u): void 
     $u->prepare_params = [WeatherDataApi3PrepareParams::class, 'call'];
     $u->prepare_path = [WeatherDataApi3PreparePath::class, 'call'];
     $u->prepare_query = [WeatherDataApi3PrepareQuery::class, 'call'];
+    $u->graphql_body = [WeatherDataApi3Graphql::class, 'body'];
+    $u->graphql_errors = [WeatherDataApi3Graphql::class, 'errors'];
     $u->result_basic = [WeatherDataApi3ResultBasic::class, 'call'];
     $u->result_body = [WeatherDataApi3ResultBody::class, 'call'];
     $u->result_headers = [WeatherDataApi3ResultHeaders::class, 'call'];

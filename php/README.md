@@ -35,7 +35,7 @@ $client = new WeatherDataApi3SDK();
 
 ```php
 try {
-    // load() returns the bare Forecast record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Forecast record (throws on error).
     $forecast = $client->Forecast()->load();
     print_r($forecast);
 } catch (\Throwable $err) {
@@ -123,7 +123,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = WeatherDataApi3SDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $forecast = $client->Forecast()->load();
 print_r($forecast);
 ```
@@ -222,7 +223,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -245,18 +246,18 @@ On error, `ok` is `false` and `$err` contains the error value.
 | Field | Description |
 | --- | --- |
 | `current` |  |
-| `current_unit` |  |
+| `current_units` |  |
 | `daily` |  |
-| `daily_unit` |  |
+| `daily_units` |  |
 | `elevation` |  |
-| `generationtime_m` |  |
+| `generationtime_ms` |  |
 | `hourly` |  |
-| `hourly_unit` |  |
+| `hourly_units` |  |
 | `latitude` |  |
 | `longitude` |  |
 | `timezone` |  |
 | `timezone_abbreviation` |  |
-| `utc_offset_second` |  |
+| `utc_offset_seconds` |  |
 
 Operations: Load.
 
@@ -282,23 +283,23 @@ Create an instance: `$forecast = $client->Forecast();`
 | Field | Type | Description |
 | --- | --- | --- |
 | `current` | `array` |  |
-| `current_unit` | `array` |  |
+| `current_units` | `array` |  |
 | `daily` | `array` |  |
-| `daily_unit` | `array` |  |
+| `daily_units` | `array` |  |
 | `elevation` | `float` |  |
-| `generationtime_m` | `float` |  |
+| `generationtime_ms` | `float` |  |
 | `hourly` | `array` |  |
-| `hourly_unit` | `array` |  |
+| `hourly_units` | `array` |  |
 | `latitude` | `float` |  |
 | `longitude` | `float` |  |
 | `timezone` | `string` |  |
 | `timezone_abbreviation` | `string` |  |
-| `utc_offset_second` | `int` |  |
+| `utc_offset_seconds` | `int` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Forecast record (throws on error).
+// load() returns the ENTITY — call data_get() for the Forecast record (throws on error).
 $forecast = $client->Forecast()->load();
 ```
 

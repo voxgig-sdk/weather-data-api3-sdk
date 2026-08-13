@@ -259,18 +259,18 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | Field | Description |
 | --- | --- |
 | `"current"` |  |
-| `"current_unit"` |  |
+| `"current_units"` |  |
 | `"daily"` |  |
-| `"daily_unit"` |  |
+| `"daily_units"` |  |
 | `"elevation"` |  |
-| `"generationtime_m"` |  |
+| `"generationtime_ms"` |  |
 | `"hourly"` |  |
-| `"hourly_unit"` |  |
+| `"hourly_units"` |  |
 | `"latitude"` |  |
 | `"longitude"` |  |
 | `"timezone"` |  |
 | `"timezone_abbreviation"` |  |
-| `"utc_offset_second"` |  |
+| `"utc_offset_seconds"` |  |
 
 Operations: Load.
 
@@ -296,18 +296,18 @@ Create an instance: `forecast := client.Forecast(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `current` | `map[string]any` |  |
-| `current_unit` | `map[string]any` |  |
+| `current_units` | `map[string]any` |  |
 | `daily` | `map[string]any` |  |
-| `daily_unit` | `map[string]any` |  |
+| `daily_units` | `map[string]any` |  |
 | `elevation` | `float64` |  |
-| `generationtime_m` | `float64` |  |
+| `generationtime_ms` | `float64` |  |
 | `hourly` | `map[string]any` |  |
-| `hourly_unit` | `map[string]any` |  |
+| `hourly_units` | `map[string]any` |  |
 | `latitude` | `float64` |  |
 | `longitude` | `float64` |  |
 | `timezone` | `string` |  |
 | `timezone_abbreviation` | `string` |  |
-| `utc_offset_second` | `int` |  |
+| `utc_offset_seconds` | `int` |  |
 
 #### Example: Load
 

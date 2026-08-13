@@ -72,11 +72,11 @@ function forecast_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "WEATHERDATAAPI__TEST_FORECAST_ENTID" => [],
-        "WEATHERDATAAPI__TEST_LIVE" => "FALSE",
+        "WEATHER_DATA_API3_TEST_FORECAST_ENTID" => [],
+        "WEATHER_DATA_API3_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["WEATHERDATAAPI__TEST_LIVE"] === "TRUE";
+    $live = $env["WEATHER_DATA_API3_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

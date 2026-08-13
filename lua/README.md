@@ -226,18 +226,18 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | Field | Description |
 | --- | --- |
 | `current` |  |
-| `current_unit` |  |
+| `current_units` |  |
 | `daily` |  |
-| `daily_unit` |  |
+| `daily_units` |  |
 | `elevation` |  |
-| `generationtime_m` |  |
+| `generationtime_ms` |  |
 | `hourly` |  |
-| `hourly_unit` |  |
+| `hourly_units` |  |
 | `latitude` |  |
 | `longitude` |  |
 | `timezone` |  |
 | `timezone_abbreviation` |  |
-| `utc_offset_second` |  |
+| `utc_offset_seconds` |  |
 
 Operations: Load.
 
@@ -263,18 +263,18 @@ Create an instance: `local forecast = client:Forecast(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `current` | `table` |  |
-| `current_unit` | `table` |  |
+| `current_units` | `table` |  |
 | `daily` | `table` |  |
-| `daily_unit` | `table` |  |
+| `daily_units` | `table` |  |
 | `elevation` | `number` |  |
-| `generationtime_m` | `number` |  |
+| `generationtime_ms` | `number` |  |
 | `hourly` | `table` |  |
-| `hourly_unit` | `table` |  |
+| `hourly_units` | `table` |  |
 | `latitude` | `number` |  |
 | `longitude` | `number` |  |
 | `timezone` | `string` |  |
 | `timezone_abbreviation` | `string` |  |
-| `utc_offset_second` | `number` |  |
+| `utc_offset_seconds` | `number` |  |
 
 #### Example: Load
 

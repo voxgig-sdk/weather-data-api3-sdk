@@ -38,7 +38,7 @@ client = WeatherDataApi3SDK()
 
 ### 3. Load a forecast
 
-`load()` returns the bare record (a `dict`) and raises on error.
+`load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
@@ -122,7 +122,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = WeatherDataApi3SDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 forecast = client.Forecast().load()
 # forecast contains the mock response record
 ```
@@ -218,7 +219,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -241,18 +242,18 @@ On error, `ok` is `False` and `err` contains the error value.
 | Field | Description |
 | --- | --- |
 | `current` |  |
-| `current_unit` |  |
+| `current_units` |  |
 | `daily` |  |
-| `daily_unit` |  |
+| `daily_units` |  |
 | `elevation` |  |
-| `generationtime_m` |  |
+| `generationtime_ms` |  |
 | `hourly` |  |
-| `hourly_unit` |  |
+| `hourly_units` |  |
 | `latitude` |  |
 | `longitude` |  |
 | `timezone` |  |
 | `timezone_abbreviation` |  |
-| `utc_offset_second` |  |
+| `utc_offset_seconds` |  |
 
 Operations: Load.
 
@@ -278,18 +279,18 @@ Create an instance: `forecast = client.Forecast()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `current` | `dict` |  |
-| `current_unit` | `dict` |  |
+| `current_units` | `dict` |  |
 | `daily` | `dict` |  |
-| `daily_unit` | `dict` |  |
+| `daily_units` | `dict` |  |
 | `elevation` | `float` |  |
-| `generationtime_m` | `float` |  |
+| `generationtime_ms` | `float` |  |
 | `hourly` | `dict` |  |
-| `hourly_unit` | `dict` |  |
+| `hourly_units` | `dict` |  |
 | `latitude` | `float` |  |
 | `longitude` | `float` |  |
 | `timezone` | `str` |  |
 | `timezone_abbreviation` | `str` |  |
-| `utc_offset_second` | `int` |  |
+| `utc_offset_seconds` | `int` |  |
 
 #### Example: Load
 

@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import WeatherDataApi3SDK
-from core.error import WeatherDataApi3Error
-from core.result import WeatherDataApi3Result
-from core.response import WeatherDataApi3Response
-from core.spec import WeatherDataApi3Spec
-from feature.base_feature import WeatherDataApi3BaseFeature
+from projectname_sdk.core.error import WeatherDataApi3Error
+from projectname_sdk.core.result import WeatherDataApi3Result
+from projectname_sdk.core.response import WeatherDataApi3Response
+from projectname_sdk.core.spec import WeatherDataApi3Spec
+from projectname_sdk.feature.base_feature import WeatherDataApi3BaseFeature
 
 
 def _client():
