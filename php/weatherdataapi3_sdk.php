@@ -40,7 +40,7 @@ class WeatherDataApi3SDK
         $utility = new WeatherDataApi3Utility();
         $this->_utility = $utility;
 
-        $config = WeatherDataApi3Config::make_config();
+        $config = WeatherDataApi3Config::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

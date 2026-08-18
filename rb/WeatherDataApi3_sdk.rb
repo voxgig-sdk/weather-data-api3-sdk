@@ -28,7 +28,7 @@ class WeatherDataApi3SDK
     utility = WeatherDataApi3Utility.new
     @_utility = utility
 
-    config = WeatherDataApi3Config.make_config
+    config = WeatherDataApi3Config.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

@@ -15,7 +15,7 @@ require_relative "../WeatherDataApi3_sdk"
 module WeatherDataApi3FeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = WeatherDataApi3Config.make_config["feature"]
+    f = WeatherDataApi3Config.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 
