@@ -102,15 +102,15 @@ fmt.Println(forecast.GetName()) // "forecast"
 | `current_units` | `map[string]any` | No |  |
 | `daily` | `map[string]any` | No |  |
 | `daily_units` | `map[string]any` | No |  |
-| `elevation` | `float64` | No |  |
-| `generationtime_ms` | `float64` | No |  |
+| `elevation` | `float64` | No | Elevation of the location in meters |
+| `generationtime_ms` | `float64` | No | Time taken to generate the response in milliseconds |
 | `hourly` | `map[string]any` | No |  |
 | `hourly_units` | `map[string]any` | No |  |
-| `latitude` | `float64` | No |  |
-| `longitude` | `float64` | No |  |
-| `timezone` | `string` | No |  |
-| `timezone_abbreviation` | `string` | No |  |
-| `utc_offset_seconds` | `int` | No |  |
+| `latitude` | `float64` | No | Latitude of the location |
+| `longitude` | `float64` | No | Longitude of the location |
+| `timezone` | `string` | No | Timezone identifier |
+| `timezone_abbreviation` | `string` | No | Timezone abbreviation |
+| `utc_offset_seconds` | `int` | No | UTC offset in seconds |
 
 ### Operations
 

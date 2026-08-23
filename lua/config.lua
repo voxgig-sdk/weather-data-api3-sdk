@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "WeatherDataApi3",
+      slug = "weather-data-api3",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -45,10 +48,12 @@ local function make_config()
           },
           {
             ["name"] = "elevation",
+            ["short"] = "Elevation of the location in meters",
             ["type"] = "`$NUMBER`",
           },
           {
             ["name"] = "generationtime_ms",
+            ["short"] = "Time taken to generate the response in milliseconds",
             ["type"] = "`$NUMBER`",
           },
           {
@@ -61,22 +66,27 @@ local function make_config()
           },
           {
             ["name"] = "latitude",
+            ["short"] = "Latitude of the location",
             ["type"] = "`$NUMBER`",
           },
           {
             ["name"] = "longitude",
+            ["short"] = "Longitude of the location",
             ["type"] = "`$NUMBER`",
           },
           {
             ["name"] = "timezone",
+            ["short"] = "Timezone identifier",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "timezone_abbreviation",
+            ["short"] = "Timezone abbreviation",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "utc_offset_seconds",
+            ["short"] = "UTC offset in seconds",
             ["type"] = "`$INTEGER`",
           },
         },

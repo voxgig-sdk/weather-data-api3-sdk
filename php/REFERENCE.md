@@ -96,15 +96,15 @@ $forecast = $client->Forecast();
 | `current_units` | `array` | No |  |
 | `daily` | `array` | No |  |
 | `daily_units` | `array` | No |  |
-| `elevation` | `float` | No |  |
-| `generationtime_ms` | `float` | No |  |
+| `elevation` | `float` | No | Elevation of the location in meters |
+| `generationtime_ms` | `float` | No | Time taken to generate the response in milliseconds |
 | `hourly` | `array` | No |  |
 | `hourly_units` | `array` | No |  |
-| `latitude` | `float` | No |  |
-| `longitude` | `float` | No |  |
-| `timezone` | `string` | No |  |
-| `timezone_abbreviation` | `string` | No |  |
-| `utc_offset_seconds` | `int` | No |  |
+| `latitude` | `float` | No | Latitude of the location |
+| `longitude` | `float` | No | Longitude of the location |
+| `timezone` | `string` | No | Timezone identifier |
+| `timezone_abbreviation` | `string` | No | Timezone abbreviation |
+| `utc_offset_seconds` | `int` | No | UTC offset in seconds |
 
 ### Operations
 

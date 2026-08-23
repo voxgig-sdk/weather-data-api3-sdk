@@ -6,7 +6,7 @@ The Golang SDK for the WeatherDataApi3 API — an entity-oriented client using s
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Forecast(nil)` — each with the same small set of operations (`Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -262,15 +262,15 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"current_units"` |  |
 | `"daily"` |  |
 | `"daily_units"` |  |
-| `"elevation"` |  |
-| `"generationtime_ms"` |  |
+| `"elevation"` | Elevation of the location in meters |
+| `"generationtime_ms"` | Time taken to generate the response in milliseconds |
 | `"hourly"` |  |
 | `"hourly_units"` |  |
-| `"latitude"` |  |
-| `"longitude"` |  |
-| `"timezone"` |  |
-| `"timezone_abbreviation"` |  |
-| `"utc_offset_seconds"` |  |
+| `"latitude"` | Latitude of the location |
+| `"longitude"` | Longitude of the location |
+| `"timezone"` | Timezone identifier |
+| `"timezone_abbreviation"` | Timezone abbreviation |
+| `"utc_offset_seconds"` | UTC offset in seconds |
 
 Operations: Load.
 
@@ -299,15 +299,15 @@ Create an instance: `forecast := client.Forecast(nil)`
 | `current_units` | `map[string]any` |  |
 | `daily` | `map[string]any` |  |
 | `daily_units` | `map[string]any` |  |
-| `elevation` | `float64` |  |
-| `generationtime_ms` | `float64` |  |
+| `elevation` | `float64` | Elevation of the location in meters |
+| `generationtime_ms` | `float64` | Time taken to generate the response in milliseconds |
 | `hourly` | `map[string]any` |  |
 | `hourly_units` | `map[string]any` |  |
-| `latitude` | `float64` |  |
-| `longitude` | `float64` |  |
-| `timezone` | `string` |  |
-| `timezone_abbreviation` | `string` |  |
-| `utc_offset_seconds` | `int` |  |
+| `latitude` | `float64` | Latitude of the location |
+| `longitude` | `float64` | Longitude of the location |
+| `timezone` | `string` | Timezone identifier |
+| `timezone_abbreviation` | `string` | Timezone abbreviation |
+| `utc_offset_seconds` | `int` | UTC offset in seconds |
 
 #### Example: Load
 

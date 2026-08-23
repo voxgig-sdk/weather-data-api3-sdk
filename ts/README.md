@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -289,15 +289,15 @@ The `prepare()` method returns:
 | `current_units` |  |
 | `daily` |  |
 | `daily_units` |  |
-| `elevation` |  |
-| `generationtime_ms` |  |
+| `elevation` | Elevation of the location in meters |
+| `generationtime_ms` | Time taken to generate the response in milliseconds |
 | `hourly` |  |
 | `hourly_units` |  |
-| `latitude` |  |
-| `longitude` |  |
-| `timezone` |  |
-| `timezone_abbreviation` |  |
-| `utc_offset_seconds` |  |
+| `latitude` | Latitude of the location |
+| `longitude` | Longitude of the location |
+| `timezone` | Timezone identifier |
+| `timezone_abbreviation` | Timezone abbreviation |
+| `utc_offset_seconds` | UTC offset in seconds |
 
 Operations: load.
 
@@ -326,15 +326,15 @@ Create an instance: `const forecast = client.Forecast()`
 | `current_units` | `Record<string, any>` |  |
 | `daily` | `Record<string, any>` |  |
 | `daily_units` | `Record<string, any>` |  |
-| `elevation` | `number` |  |
-| `generationtime_ms` | `number` |  |
+| `elevation` | `number` | Elevation of the location in meters |
+| `generationtime_ms` | `number` | Time taken to generate the response in milliseconds |
 | `hourly` | `Record<string, any>` |  |
 | `hourly_units` | `Record<string, any>` |  |
-| `latitude` | `number` |  |
-| `longitude` | `number` |  |
-| `timezone` | `string` |  |
-| `timezone_abbreviation` | `string` |  |
-| `utc_offset_seconds` | `number` |  |
+| `latitude` | `number` | Latitude of the location |
+| `longitude` | `number` | Longitude of the location |
+| `timezone` | `string` | Timezone identifier |
+| `timezone_abbreviation` | `string` | Timezone abbreviation |
+| `utc_offset_seconds` | `number` | UTC offset in seconds |
 
 #### Example: Load
 

@@ -28,11 +28,13 @@ main: kit: entity: forecast: {
     {
       name: "elevation"
       req: false
+      short: "Elevation of the location in meters"
       type: "`$NUMBER`"
     }
     {
       name: "generationtime_ms"
       req: false
+      short: "Time taken to generate the response in milliseconds"
       type: "`$NUMBER`"
     }
     {
@@ -48,26 +50,31 @@ main: kit: entity: forecast: {
     {
       name: "latitude"
       req: false
+      short: "Latitude of the location"
       type: "`$NUMBER`"
     }
     {
       name: "longitude"
       req: false
+      short: "Longitude of the location"
       type: "`$NUMBER`"
     }
     {
       name: "timezone"
       req: false
+      short: "Timezone identifier"
       type: "`$STRING`"
     }
     {
       name: "timezone_abbreviation"
       req: false
+      short: "Timezone abbreviation"
       type: "`$STRING`"
     }
     {
       name: "utc_offset_seconds"
       req: false
+      short: "UTC offset in seconds"
       type: "`$INTEGER`"
     }
   ]

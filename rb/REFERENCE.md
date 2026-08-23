@@ -97,15 +97,15 @@ forecast = client.Forecast
 | `current_units` | `Hash` | No |  |
 | `daily` | `Hash` | No |  |
 | `daily_units` | `Hash` | No |  |
-| `elevation` | `Float` | No |  |
-| `generationtime_ms` | `Float` | No |  |
+| `elevation` | `Float` | No | Elevation of the location in meters |
+| `generationtime_ms` | `Float` | No | Time taken to generate the response in milliseconds |
 | `hourly` | `Hash` | No |  |
 | `hourly_units` | `Hash` | No |  |
-| `latitude` | `Float` | No |  |
-| `longitude` | `Float` | No |  |
-| `timezone` | `String` | No |  |
-| `timezone_abbreviation` | `String` | No |  |
-| `utc_offset_seconds` | `Integer` | No |  |
+| `latitude` | `Float` | No | Latitude of the location |
+| `longitude` | `Float` | No | Longitude of the location |
+| `timezone` | `String` | No | Timezone identifier |
+| `timezone_abbreviation` | `String` | No | Timezone abbreviation |
+| `utc_offset_seconds` | `Integer` | No | UTC offset in seconds |
 
 ### Operations
 

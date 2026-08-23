@@ -249,15 +249,15 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `current_units` |  |
 | `daily` |  |
 | `daily_units` |  |
-| `elevation` |  |
-| `generationtime_ms` |  |
+| `elevation` | Elevation of the location in meters |
+| `generationtime_ms` | Time taken to generate the response in milliseconds |
 | `hourly` |  |
 | `hourly_units` |  |
-| `latitude` |  |
-| `longitude` |  |
-| `timezone` |  |
-| `timezone_abbreviation` |  |
-| `utc_offset_seconds` |  |
+| `latitude` | Latitude of the location |
+| `longitude` | Longitude of the location |
+| `timezone` | Timezone identifier |
+| `timezone_abbreviation` | Timezone abbreviation |
+| `utc_offset_seconds` | UTC offset in seconds |
 
 Operations: Load.
 
@@ -286,15 +286,15 @@ Create an instance: `$forecast = $client->Forecast();`
 | `current_units` | `array` |  |
 | `daily` | `array` |  |
 | `daily_units` | `array` |  |
-| `elevation` | `float` |  |
-| `generationtime_ms` | `float` |  |
+| `elevation` | `float` | Elevation of the location in meters |
+| `generationtime_ms` | `float` | Time taken to generate the response in milliseconds |
 | `hourly` | `array` |  |
 | `hourly_units` | `array` |  |
-| `latitude` | `float` |  |
-| `longitude` | `float` |  |
-| `timezone` | `string` |  |
-| `timezone_abbreviation` | `string` |  |
-| `utc_offset_seconds` | `int` |  |
+| `latitude` | `float` | Latitude of the location |
+| `longitude` | `float` | Longitude of the location |
+| `timezone` | `string` | Timezone identifier |
+| `timezone_abbreviation` | `string` | Timezone abbreviation |
+| `utc_offset_seconds` | `int` | UTC offset in seconds |
 
 #### Example: Load
 

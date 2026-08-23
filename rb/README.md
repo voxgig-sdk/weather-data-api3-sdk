@@ -239,15 +239,15 @@ returns a result `Hash` with these keys:
 | `current_units` |  |
 | `daily` |  |
 | `daily_units` |  |
-| `elevation` |  |
-| `generationtime_ms` |  |
+| `elevation` | Elevation of the location in meters |
+| `generationtime_ms` | Time taken to generate the response in milliseconds |
 | `hourly` |  |
 | `hourly_units` |  |
-| `latitude` |  |
-| `longitude` |  |
-| `timezone` |  |
-| `timezone_abbreviation` |  |
-| `utc_offset_seconds` |  |
+| `latitude` | Latitude of the location |
+| `longitude` | Longitude of the location |
+| `timezone` | Timezone identifier |
+| `timezone_abbreviation` | Timezone abbreviation |
+| `utc_offset_seconds` | UTC offset in seconds |
 
 Operations: Load.
 
@@ -276,15 +276,15 @@ Create an instance: `forecast = client.Forecast`
 | `current_units` | `Hash` |  |
 | `daily` | `Hash` |  |
 | `daily_units` | `Hash` |  |
-| `elevation` | `Float` |  |
-| `generationtime_ms` | `Float` |  |
+| `elevation` | `Float` | Elevation of the location in meters |
+| `generationtime_ms` | `Float` | Time taken to generate the response in milliseconds |
 | `hourly` | `Hash` |  |
 | `hourly_units` | `Hash` |  |
-| `latitude` | `Float` |  |
-| `longitude` | `Float` |  |
-| `timezone` | `String` |  |
-| `timezone_abbreviation` | `String` |  |
-| `utc_offset_seconds` | `Integer` |  |
+| `latitude` | `Float` | Latitude of the location |
+| `longitude` | `Float` | Longitude of the location |
+| `timezone` | `String` | Timezone identifier |
+| `timezone_abbreviation` | `String` | Timezone abbreviation |
+| `utc_offset_seconds` | `Integer` | UTC offset in seconds |
 
 #### Example: Load
 

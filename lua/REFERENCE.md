@@ -94,15 +94,15 @@ local forecast = client:Forecast(nil)
 | `current_units` | `table` | No |  |
 | `daily` | `table` | No |  |
 | `daily_units` | `table` | No |  |
-| `elevation` | `number` | No |  |
-| `generationtime_ms` | `number` | No |  |
+| `elevation` | `number` | No | Elevation of the location in meters |
+| `generationtime_ms` | `number` | No | Time taken to generate the response in milliseconds |
 | `hourly` | `table` | No |  |
 | `hourly_units` | `table` | No |  |
-| `latitude` | `number` | No |  |
-| `longitude` | `number` | No |  |
-| `timezone` | `string` | No |  |
-| `timezone_abbreviation` | `string` | No |  |
-| `utc_offset_seconds` | `number` | No |  |
+| `latitude` | `number` | No | Latitude of the location |
+| `longitude` | `number` | No | Longitude of the location |
+| `timezone` | `string` | No | Timezone identifier |
+| `timezone_abbreviation` | `string` | No | Timezone abbreviation |
+| `utc_offset_seconds` | `number` | No | UTC offset in seconds |
 
 ### Operations
 

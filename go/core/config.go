@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "WeatherDataApi3",
+			"slug": "weather-data-api3",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -49,10 +52,12 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "elevation",
+						"short": "Elevation of the location in meters",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "generationtime_ms",
+						"short": "Time taken to generate the response in milliseconds",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
@@ -65,22 +70,27 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "latitude",
+						"short": "Latitude of the location",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "longitude",
+						"short": "Longitude of the location",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "timezone",
+						"short": "Timezone identifier",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "timezone_abbreviation",
+						"short": "Timezone abbreviation",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "utc_offset_seconds",
+						"short": "UTC offset in seconds",
 						"type": "`$INTEGER`",
 					},
 				},

@@ -229,15 +229,15 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `current_units` |  |
 | `daily` |  |
 | `daily_units` |  |
-| `elevation` |  |
-| `generationtime_ms` |  |
+| `elevation` | Elevation of the location in meters |
+| `generationtime_ms` | Time taken to generate the response in milliseconds |
 | `hourly` |  |
 | `hourly_units` |  |
-| `latitude` |  |
-| `longitude` |  |
-| `timezone` |  |
-| `timezone_abbreviation` |  |
-| `utc_offset_seconds` |  |
+| `latitude` | Latitude of the location |
+| `longitude` | Longitude of the location |
+| `timezone` | Timezone identifier |
+| `timezone_abbreviation` | Timezone abbreviation |
+| `utc_offset_seconds` | UTC offset in seconds |
 
 Operations: Load.
 
@@ -266,15 +266,15 @@ Create an instance: `local forecast = client:Forecast(nil)`
 | `current_units` | `table` |  |
 | `daily` | `table` |  |
 | `daily_units` | `table` |  |
-| `elevation` | `number` |  |
-| `generationtime_ms` | `number` |  |
+| `elevation` | `number` | Elevation of the location in meters |
+| `generationtime_ms` | `number` | Time taken to generate the response in milliseconds |
 | `hourly` | `table` |  |
 | `hourly_units` | `table` |  |
-| `latitude` | `number` |  |
-| `longitude` | `number` |  |
-| `timezone` | `string` |  |
-| `timezone_abbreviation` | `string` |  |
-| `utc_offset_seconds` | `number` |  |
+| `latitude` | `number` | Latitude of the location |
+| `longitude` | `number` | Longitude of the location |
+| `timezone` | `string` | Timezone identifier |
+| `timezone_abbreviation` | `string` | Timezone abbreviation |
+| `utc_offset_seconds` | `number` | UTC offset in seconds |
 
 #### Example: Load
 

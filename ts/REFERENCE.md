@@ -120,15 +120,15 @@ const forecast = client.Forecast()
 | `current_units` | `Record<string, any>` | No |  |
 | `daily` | `Record<string, any>` | No |  |
 | `daily_units` | `Record<string, any>` | No |  |
-| `elevation` | `number` | No |  |
-| `generationtime_ms` | `number` | No |  |
+| `elevation` | `number` | No | Elevation of the location in meters |
+| `generationtime_ms` | `number` | No | Time taken to generate the response in milliseconds |
 | `hourly` | `Record<string, any>` | No |  |
 | `hourly_units` | `Record<string, any>` | No |  |
-| `latitude` | `number` | No |  |
-| `longitude` | `number` | No |  |
-| `timezone` | `string` | No |  |
-| `timezone_abbreviation` | `string` | No |  |
-| `utc_offset_seconds` | `number` | No |  |
+| `latitude` | `number` | No | Latitude of the location |
+| `longitude` | `number` | No | Longitude of the location |
+| `timezone` | `string` | No | Timezone identifier |
+| `timezone_abbreviation` | `string` | No | Timezone abbreviation |
+| `utc_offset_seconds` | `number` | No | UTC offset in seconds |
 
 ### Operations
 

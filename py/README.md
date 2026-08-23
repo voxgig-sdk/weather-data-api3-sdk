@@ -245,15 +245,15 @@ On error, `ok` is `False` and `err` contains the error value.
 | `current_units` |  |
 | `daily` |  |
 | `daily_units` |  |
-| `elevation` |  |
-| `generationtime_ms` |  |
+| `elevation` | Elevation of the location in meters |
+| `generationtime_ms` | Time taken to generate the response in milliseconds |
 | `hourly` |  |
 | `hourly_units` |  |
-| `latitude` |  |
-| `longitude` |  |
-| `timezone` |  |
-| `timezone_abbreviation` |  |
-| `utc_offset_seconds` |  |
+| `latitude` | Latitude of the location |
+| `longitude` | Longitude of the location |
+| `timezone` | Timezone identifier |
+| `timezone_abbreviation` | Timezone abbreviation |
+| `utc_offset_seconds` | UTC offset in seconds |
 
 Operations: Load.
 
@@ -282,15 +282,15 @@ Create an instance: `forecast = client.Forecast()`
 | `current_units` | `dict` |  |
 | `daily` | `dict` |  |
 | `daily_units` | `dict` |  |
-| `elevation` | `float` |  |
-| `generationtime_ms` | `float` |  |
+| `elevation` | `float` | Elevation of the location in meters |
+| `generationtime_ms` | `float` | Time taken to generate the response in milliseconds |
 | `hourly` | `dict` |  |
 | `hourly_units` | `dict` |  |
-| `latitude` | `float` |  |
-| `longitude` | `float` |  |
-| `timezone` | `str` |  |
-| `timezone_abbreviation` | `str` |  |
-| `utc_offset_seconds` | `int` |  |
+| `latitude` | `float` | Latitude of the location |
+| `longitude` | `float` | Longitude of the location |
+| `timezone` | `str` | Timezone identifier |
+| `timezone_abbreviation` | `str` | Timezone abbreviation |
+| `utc_offset_seconds` | `int` | UTC offset in seconds |
 
 #### Example: Load
 
