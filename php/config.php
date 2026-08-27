@@ -42,6 +42,7 @@ class WeatherDataApi3Config
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [

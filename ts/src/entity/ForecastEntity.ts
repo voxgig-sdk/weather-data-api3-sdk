@@ -43,7 +43,8 @@ class ForecastEntity extends WeatherDataApi3EntityBase<Forecast> {
     const {
       makeContext,
       done,
-      error,
+      // The registry name is `makeError`; `error` is the local alias.
+      makeError: error,
       featureHook,
       makePoint,
       makeRequest,
