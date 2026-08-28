@@ -33,18 +33,11 @@ class Forecast
 /** Request payload for Forecast#load. */
 class ForecastLoadMatch
 {
-    public ?array $current = null;
-    public ?array $current_units = null;
-    public ?array $daily = null;
-    public ?array $daily_units = null;
-    public ?float $elevation = null;
-    public ?float $generationtime_ms = null;
-    public ?array $hourly = null;
-    public ?array $hourly_units = null;
-    public ?float $latitude = null;
-    public ?float $longitude = null;
+    public ?string $current = null;
+    public ?string $daily = null;
+    public ?string $hourly = null;
+    public float $latitude;
+    public float $longitude;
     public ?string $timezone = null;
-    public ?string $timezone_abbreviation = null;
-    public ?int $utc_offset_seconds = null;
 }
 

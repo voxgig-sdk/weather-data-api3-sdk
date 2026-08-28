@@ -36,7 +36,7 @@ local client = sdk.new()
 ### 3. Load a forecast
 
 ```lua
-local forecast, err = client:Forecast():load()
+local forecast, err = client:Forecast():load({ latitude = 1, longitude = 1 })
 if err then error(err) end
 print(forecast)
 ```
@@ -48,7 +48,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local forecast, err = client:Forecast():load()
+local forecast, err = client:Forecast():load({ latitude = 1, longitude = 1 })
 if err then error(err) end
 ```
 
@@ -106,7 +106,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Forecast():load()
+local result, err = client:Forecast():load({ latitude = 1, longitude = 1 })
 -- result is the returned data; err is set on failure
 ```
 
@@ -279,8 +279,31 @@ Create an instance: `local forecast = client:Forecast(nil)`
 #### Example: Load
 
 ```lua
-local forecast, err = client:Forecast():load()
+local forecast, err = client:Forecast():load({ latitude = 1, longitude = 1 })
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -360,7 +383,7 @@ stores the returned data and match criteria internally.
 
 ```lua
 local forecast = client:Forecast()
-forecast:load()
+forecast:load({ latitude = 1, longitude = 1 })
 
 -- forecast:data_get() now returns the forecast data from the last load
 -- forecast:match_get() returns the last match criteria

@@ -36,7 +36,7 @@ $client = new WeatherDataApi3SDK();
 ```php
 try {
     // load() returns the ENTITY — call data_get() for the Forecast record (throws on error).
-    $forecast = $client->Forecast()->load();
+    $forecast = $client->Forecast()->load(["latitude" => 1, "longitude" => 1]);
     print_r($forecast);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -51,7 +51,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $forecast = $client->Forecast()->load();
+    $forecast = $client->Forecast()->load(["latitude" => 1, "longitude" => 1]);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -125,7 +125,7 @@ $client = WeatherDataApi3SDK::test();
 
 // Entity ops return the ENTITY (throws on error);
 // call data_get() for the mock record.
-$forecast = $client->Forecast()->load();
+$forecast = $client->Forecast()->load(["latitude" => 1, "longitude" => 1]);
 print_r($forecast);
 ```
 
@@ -300,8 +300,31 @@ Create an instance: `$forecast = $client->Forecast();`
 
 ```php
 // load() returns the ENTITY — call data_get() for the Forecast record (throws on error).
-$forecast = $client->Forecast()->load();
+$forecast = $client->Forecast()->load(["latitude" => 1, "longitude" => 1]);
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -381,7 +404,7 @@ stores the returned data and match criteria internally.
 
 ```php
 $forecast = $client->Forecast();
-$forecast->load();
+$forecast->load(["latitude" => 1, "longitude" => 1]);
 
 // $forecast->data_get() now returns the forecast data from the last load
 // $forecast->match_get() returns the last match criteria

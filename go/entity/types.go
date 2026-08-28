@@ -31,19 +31,12 @@ type Forecast struct {
 
 // ForecastLoadMatch is the typed request payload for Forecast.LoadTyped.
 type ForecastLoadMatch struct {
-	Current *map[string]any `json:"current,omitempty"`
-	CurrentUnits *map[string]any `json:"current_units,omitempty"`
-	Daily *map[string]any `json:"daily,omitempty"`
-	DailyUnits *map[string]any `json:"daily_units,omitempty"`
-	Elevation *float64 `json:"elevation,omitempty"`
-	GenerationtimeMs *float64 `json:"generationtime_ms,omitempty"`
-	Hourly *map[string]any `json:"hourly,omitempty"`
-	HourlyUnits *map[string]any `json:"hourly_units,omitempty"`
-	Latitude *float64 `json:"latitude,omitempty"`
-	Longitude *float64 `json:"longitude,omitempty"`
+	Current *string `json:"current,omitempty"`
+	Daily *string `json:"daily,omitempty"`
+	Hourly *string `json:"hourly,omitempty"`
+	Latitude float64 `json:"latitude"`
+	Longitude float64 `json:"longitude"`
 	Timezone *string `json:"timezone,omitempty"`
-	TimezoneAbbreviation *string `json:"timezone_abbreviation,omitempty"`
-	UtcOffsetSeconds *int `json:"utc_offset_seconds,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

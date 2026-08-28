@@ -32,17 +32,13 @@ class Forecast(TypedDict, total=False):
     utc_offset_seconds: int
 
 
-class ForecastLoadMatch(TypedDict, total=False):
-    current: dict
-    current_units: dict
-    daily: dict
-    daily_units: dict
-    elevation: float
-    generationtime_ms: float
-    hourly: dict
-    hourly_units: dict
+class ForecastLoadMatchRequired(TypedDict):
     latitude: float
     longitude: float
+
+
+class ForecastLoadMatch(ForecastLoadMatchRequired, total=False):
+    current: str
+    daily: str
+    hourly: str
     timezone: str
-    timezone_abbreviation: str
-    utc_offset_seconds: int

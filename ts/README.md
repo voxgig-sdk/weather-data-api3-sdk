@@ -39,7 +39,7 @@ const client = new WeatherDataApi3SDK()
 
 ```ts
 try {
-  const forecast = await client.Forecast().load()
+  const forecast = await client.Forecast().load({ latitude: 1, longitude: 1 })
   console.log(forecast)
 } catch (err) {
   console.error('load failed:', err)
@@ -53,7 +53,7 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const forecast = await client.Forecast().load()
+  const forecast = await client.Forecast().load({ latitude: 1, longitude: 1 })
   console.log(forecast)
 } catch (err) {
   console.error('load failed:', err)
@@ -120,7 +120,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = WeatherDataApi3SDK.test()
 
-const forecast = await client.Forecast().load()
+const forecast = await client.Forecast().load({ latitude: 1, longitude: 1 })
 // forecast is the entity, populated with mock response data
 // — call forecast.data() for the record itself
 console.log(forecast)
@@ -141,7 +141,7 @@ Entity instances remember their last match and data:
 const entity = client.Forecast()
 
 // First call runs the operation and stores its result
-await entity.load()
+await entity.load({ latitude: 1, longitude: 1 })
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
@@ -339,8 +339,31 @@ Create an instance: `const forecast = client.Forecast()`
 #### Example: Load
 
 ```ts
-const forecast = await client.Forecast().load()
+const forecast = await client.Forecast().load({ latitude: 1, longitude: 1 })
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -413,7 +436,7 @@ calls on the same instance can rely on this state.
 
 ```ts
 const forecast = client.Forecast()
-await forecast.load()
+await forecast.load({ latitude: 1, longitude: 1 })
 
 // forecast.data() now returns the forecast data from the last `load`
 // forecast.match() returns the last match criteria

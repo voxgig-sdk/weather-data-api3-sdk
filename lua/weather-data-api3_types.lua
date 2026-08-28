@@ -22,19 +22,12 @@
 ---@field utc_offset_seconds? number
 
 ---@class ForecastLoadMatch
----@field current? table
----@field current_units? table
----@field daily? table
----@field daily_units? table
----@field elevation? number
----@field generationtime_ms? number
----@field hourly? table
----@field hourly_units? table
----@field latitude? number
----@field longitude? number
+---@field current? string
+---@field daily? string
+---@field hourly? string
+---@field latitude number
+---@field longitude number
 ---@field timezone? string
----@field timezone_abbreviation? string
----@field utc_offset_seconds? number
 
 local M = {}
 
