@@ -74,11 +74,13 @@ class WeatherDataApi3Config
               'type' => '`$OBJECT`',
             ],
             [
+              'format' => 'float',
               'name' => 'elevation',
               'short' => 'Elevation of the location in meters',
               'type' => '`$NUMBER`',
             ],
             [
+              'format' => 'float',
               'name' => 'generationtime_ms',
               'short' => 'Time taken to generate the response in milliseconds',
               'type' => '`$NUMBER`',
@@ -92,11 +94,13 @@ class WeatherDataApi3Config
               'type' => '`$OBJECT`',
             ],
             [
+              'format' => 'float',
               'name' => 'latitude',
               'short' => 'Latitude of the location',
               'type' => '`$NUMBER`',
             ],
             [
+              'format' => 'float',
               'name' => 'longitude',
               'short' => 'Longitude of the location',
               'type' => '`$NUMBER`',
@@ -175,8 +179,10 @@ class WeatherDataApi3Config
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/forecast',
-                  'parts' => [
-                    'forecast',
+                  'segments' => [
+                    [
+                      'lit' => 'forecast',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -191,6 +197,9 @@ class WeatherDataApi3Config
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'forecast',
                   ],
                 ],
               ],

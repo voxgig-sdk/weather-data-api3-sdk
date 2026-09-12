@@ -26,12 +26,14 @@ main: kit: entity: forecast: {
       type: "`$OBJECT`"
     }
     {
+      format: "float"
       name: "elevation"
       req: false
       short: "Elevation of the location in meters"
       type: "`$NUMBER`"
     }
     {
+      format: "float"
       name: "generationtime_ms"
       req: false
       short: "Time taken to generate the response in milliseconds"
@@ -48,12 +50,14 @@ main: kit: entity: forecast: {
       type: "`$OBJECT`"
     }
     {
+      format: "float"
       name: "latitude"
       req: false
       short: "Latitude of the location"
       type: "`$NUMBER`"
     }
     {
+      format: "float"
       name: "longitude"
       req: false
       short: "Longitude of the location"
@@ -139,8 +143,10 @@ main: kit: entity: forecast: {
           }
           method: "GET"
           orig: "/forecast"
-          parts: [
-            "forecast"
+          segments: [
+            {
+              lit: "forecast"
+            }
           ]
           select: {
             exist: [
