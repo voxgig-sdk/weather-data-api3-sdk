@@ -105,7 +105,7 @@ local result, err = client:Forecast():load({ latitude = 1, longitude = 1 })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/weather-data-api3` | publish pending — [install from git tag](https://github.com/voxgig-sdk/weather-data-api3-sdk/releases) |
+| TypeScript | `@voxgig-sdk/weather-data-api3-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/weather-data-api3-sdk/releases) |
 | Python | `voxgig-sdk-weather-data-api3` | publish pending — [install from git tag](https://github.com/voxgig-sdk/weather-data-api3-sdk/releases) |
 | PHP | `voxgig-sdk/weather-data-api3` | publish pending — [install from git tag](https://github.com/voxgig-sdk/weather-data-api3-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/weather-data-api3-sdk/go` | `go get github.com/voxgig-sdk/weather-data-api3-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Forecast():load({ latitude = 1, longitude = 1 })
 ### TypeScript
 
 ```ts
-import { WeatherDataApi3SDK } from '@voxgig-sdk/weather-data-api3'
+import { WeatherDataApi3SDK } from '@voxgig-sdk/weather-data-api3-sdk'
 
 const client = new WeatherDataApi3SDK()
 
