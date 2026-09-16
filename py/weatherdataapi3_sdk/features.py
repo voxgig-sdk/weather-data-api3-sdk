@@ -1,12 +1,18 @@
 # WeatherDataApi3 SDK feature factory
 
 from weatherdataapi3_sdk.feature.base_feature import WeatherDataApi3BaseFeature
+from weatherdataapi3_sdk.feature.ratelimit_feature import WeatherDataApi3RatelimitFeature
+from weatherdataapi3_sdk.feature.retry_feature import WeatherDataApi3RetryFeature
 from weatherdataapi3_sdk.feature.test_feature import WeatherDataApi3TestFeature
+from weatherdataapi3_sdk.feature.timeout_feature import WeatherDataApi3TimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: WeatherDataApi3BaseFeature(),
+    "ratelimit": lambda: WeatherDataApi3RatelimitFeature(),
+    "retry": lambda: WeatherDataApi3RetryFeature(),
     "test": lambda: WeatherDataApi3TestFeature(),
+    "timeout": lambda: WeatherDataApi3TimeoutFeature(),
 }
 
 

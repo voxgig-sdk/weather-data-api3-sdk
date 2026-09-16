@@ -4,7 +4,10 @@ declare(strict_types=1);
 // WeatherDataApi3 SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class WeatherDataApi3Features
@@ -14,8 +17,14 @@ class WeatherDataApi3Features
         switch ($name) {
             case "base":
                 return new WeatherDataApi3BaseFeature();
+            case "ratelimit":
+                return new WeatherDataApi3RatelimitFeature();
+            case "retry":
+                return new WeatherDataApi3RetryFeature();
             case "test":
                 return new WeatherDataApi3TestFeature();
+            case "timeout":
+                return new WeatherDataApi3TimeoutFeature();
             default:
                 return new WeatherDataApi3BaseFeature();
         }
@@ -31,7 +40,10 @@ class WeatherDataApi3Features
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;
