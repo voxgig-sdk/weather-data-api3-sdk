@@ -105,12 +105,12 @@ local result, err = client:Forecast():load({ latitude = 1, longitude = 1 })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/weather-data-api3-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/weather-data-api3-sdk/releases) |
-| Python | `voxgig-sdk-weather-data-api3` | publish pending — [install from git tag](https://github.com/voxgig-sdk/weather-data-api3-sdk/releases) |
-| PHP | `voxgig-sdk/weather-data-api3` | publish pending — [install from git tag](https://github.com/voxgig-sdk/weather-data-api3-sdk/releases) |
+| TypeScript | `@voxgig-sdk/weather-data-api3-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/weather-data-api3-sdk/tags) |
+| Python | `voxgig-sdk-weather-data-api3` | publish pending — [install from git tag](https://github.com/voxgig-sdk/weather-data-api3-sdk/tags) |
+| PHP | `voxgig-sdk/weather-data-api3` | publish pending — [install from git tag](https://github.com/voxgig-sdk/weather-data-api3-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/weather-data-api3-sdk/go` | `go get github.com/voxgig-sdk/weather-data-api3-sdk/go@latest` |
-| Ruby | `voxgig-sdk-weather-data-api3` | publish pending — [install from git tag](https://github.com/voxgig-sdk/weather-data-api3-sdk/releases) |
-| Lua | `voxgig-sdk-weather-data-api3` | publish pending — [install from git tag](https://github.com/voxgig-sdk/weather-data-api3-sdk/releases) |
+| Ruby | `voxgig-sdk-weather-data-api3` | publish pending — [install from git tag](https://github.com/voxgig-sdk/weather-data-api3-sdk/tags) |
+| Lua | `voxgig-sdk-weather-data-api3` | publish pending — [install from git tag](https://github.com/voxgig-sdk/weather-data-api3-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/weather-data-api3-sdk/go-cli` | `go install github.com/voxgig-sdk/weather-data-api3-sdk/go-cli/cmd/weather-data-api3@latest` |
 | Go MCP server | `github.com/voxgig-sdk/weather-data-api3-sdk/go-mcp` | `go get github.com/voxgig-sdk/weather-data-api3-sdk/go-mcp@latest` |
 
