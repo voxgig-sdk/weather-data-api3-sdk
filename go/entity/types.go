@@ -1,7 +1,7 @@
 // Typed models for the WeatherDataApi3 SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,19 +14,6 @@ import (
 
 // Forecast is the typed data model for the forecast entity.
 type Forecast struct {
-	Current *map[string]any `json:"current,omitempty"`
-	CurrentUnits *map[string]any `json:"current_units,omitempty"`
-	Daily *map[string]any `json:"daily,omitempty"`
-	DailyUnits *map[string]any `json:"daily_units,omitempty"`
-	Elevation *float64 `json:"elevation,omitempty"`
-	GenerationtimeMs *float64 `json:"generationtime_ms,omitempty"`
-	Hourly *map[string]any `json:"hourly,omitempty"`
-	HourlyUnits *map[string]any `json:"hourly_units,omitempty"`
-	Latitude *float64 `json:"latitude,omitempty"`
-	Longitude *float64 `json:"longitude,omitempty"`
-	Timezone *string `json:"timezone,omitempty"`
-	TimezoneAbbreviation *string `json:"timezone_abbreviation,omitempty"`
-	UtcOffsetSeconds *int `json:"utc_offset_seconds,omitempty"`
 }
 
 // ForecastLoadMatch is the typed request payload for Forecast.LoadTyped.
