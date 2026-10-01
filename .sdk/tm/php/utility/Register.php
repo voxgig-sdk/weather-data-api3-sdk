@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 WeatherDataApi3Utility::setRegistrar(function (WeatherDataApi3Utility $u): void {
     $u->clean = [WeatherDataApi3Clean::class, 'call'];
+    $u->clean_add = [WeatherDataApi3Clean::class, 'add'];
+    $u->clean_explain = [WeatherDataApi3Done::class, 'clean_explain'];
     $u->done = [WeatherDataApi3Done::class, 'call'];
     $u->make_error = [WeatherDataApi3MakeError::class, 'call'];
     $u->feature_add = [WeatherDataApi3FeatureAdd::class, 'call'];

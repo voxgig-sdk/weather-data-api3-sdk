@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 WeatherDataApi3Utility.registrar = ->(u) {
   u.clean = WeatherDataApi3Utilities::Clean
+  u.clean_add = WeatherDataApi3Utilities::CleanAdd
+  u.clean_explain = WeatherDataApi3Utilities::CleanExplain
   u.done = WeatherDataApi3Utilities::Done
   u.make_error = WeatherDataApi3Utilities::MakeError
   u.feature_add = WeatherDataApi3Utilities::FeatureAdd
