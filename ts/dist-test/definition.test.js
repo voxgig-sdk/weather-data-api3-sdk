@@ -16,14 +16,18 @@ const PLAN = [
         "path": "/forecast",
         "args": [],
         "select": {
+            "latitude": 52.52,
+            "longitude": 13.41,
             "current": "temperature_2m,relative_humidity_2m,apparent_temperature,is_day,wind_speed_10m,wind_direction_10m,wind_gusts_10m,precipitation,rain,showers,snowfall,weather_code,cloud_cover,pressure_msl,surface_pressure",
             "daily": "weather_code,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,wind_speed_10m_max,sunrise,sunset,daylight_duration,sunshine_duration,uv_index_max,uv_index_clear_sky_max,rain_sum,showers_sum,snowfall_sum,precipitation_hours,precipitation_sum,precipitation_probability_max,wind_gusts_10m_max,wind_direction_10m_dominant,shortwave_radiation_sum,et0_fao_evapotranspiration",
             "hourly": "temperature_2m,relative_humidity_2m,dew_point_2m,apparent_temperature,precipitation_probability,precipitation,rain,showers,snowfall,snow_depth,vapour_pressure_deficit,et0_fao_evapotranspiration,visibility,evapotranspiration,cloud_cover_high,cloud_cover_mid,cloud_cover_low,cloud_cover,surface_pressure,pressure_msl,weather_code,wind_speed_10m,wind_speed_80m,wind_speed_120m,wind_speed_180m,wind_direction_10m,wind_direction_80m,wind_direction_120m,wind_direction_180m,wind_gusts_10m,temperature_80m,temperature_120m,temperature_180m,soil_temperature_0cm,soil_temperature_6cm,soil_temperature_18cm,soil_temperature_54cm,soil_moisture_0_to_1cm,soil_moisture_1_to_3cm,soil_moisture_3_to_9cm,soil_moisture_9_to_27cm,soil_moisture_27_to_81cm",
-            "latitude": 52.52,
-            "longitude": 13.41,
             "timezone": "auto"
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [
             "latitude",
             "longitude",
@@ -31,6 +35,32 @@ const PLAN = [
             "hourly",
             "daily",
             "timezone"
+        ],
+        "queryArgs": [
+            {
+                "name": "current",
+                "wire": "current"
+            },
+            {
+                "name": "daily",
+                "wire": "daily"
+            },
+            {
+                "name": "hourly",
+                "wire": "hourly"
+            },
+            {
+                "name": "latitude",
+                "wire": "latitude"
+            },
+            {
+                "name": "longitude",
+                "wire": "longitude"
+            },
+            {
+                "name": "timezone",
+                "wire": "timezone"
+            }
         ],
         "auth": null,
         "status": 200,
@@ -43,103 +73,106 @@ const PLAN = [
             "timezone_abbreviation": "x",
             "elevation": 1,
             "current_units": {
-                "apparent_temperature": "°C",
-                "cloud_cover": "%",
-                "interval": "seconds",
-                "is_day": "x",
-                "precipitation": "mm",
-                "pressure_msl": "hPa",
-                "rain": "mm",
-                "relative_humidity_2m": "%",
-                "showers": "mm",
-                "snowfall": "cm",
-                "surface_pressure": "hPa",
-                "temperature_2m": "°C",
                 "time": "iso8601",
-                "weather_code": "wmo code",
+                "interval": "seconds",
+                "temperature_2m": "°C",
+                "relative_humidity_2m": "%",
+                "apparent_temperature": "°C",
+                "is_day": "x",
+                "wind_speed_10m": "km/h",
                 "wind_direction_10m": "°",
                 "wind_gusts_10m": "km/h",
-                "wind_speed_10m": "km/h"
+                "precipitation": "mm",
+                "rain": "mm",
+                "showers": "mm",
+                "snowfall": "cm",
+                "weather_code": "wmo code",
+                "cloud_cover": "%",
+                "pressure_msl": "hPa",
+                "surface_pressure": "hPa"
             },
             "current": {
-                "apparent_temperature": 1,
-                "cloud_cover": 1,
-                "interval": 1,
-                "is_day": 1,
-                "precipitation": 1,
-                "pressure_msl": 1,
-                "rain": 1,
-                "relative_humidity_2m": 1,
-                "showers": 1,
-                "snowfall": 1,
-                "surface_pressure": 1,
-                "temperature_2m": 1,
                 "time": "2026-01-01T00:00:00Z",
-                "weather_code": 1,
+                "interval": 1,
+                "temperature_2m": 1,
+                "relative_humidity_2m": 1,
+                "apparent_temperature": 1,
+                "is_day": 1,
+                "wind_speed_10m": 1,
                 "wind_direction_10m": 1,
                 "wind_gusts_10m": 1,
-                "wind_speed_10m": 1
+                "precipitation": 1,
+                "rain": 1,
+                "showers": 1,
+                "snowfall": 1,
+                "weather_code": 1,
+                "cloud_cover": 1,
+                "pressure_msl": 1,
+                "surface_pressure": 1
             },
             "hourly_units": {
-                "apparent_temperature": "°C",
-                "cloud_cover": "%",
-                "dew_point_2m": "°C",
-                "precipitation": "mm",
-                "precipitation_probability": "%",
-                "rain": "mm",
-                "relative_humidity_2m": "%",
-                "showers": "mm",
-                "snow_depth": "m",
-                "snowfall": "cm",
-                "temperature_2m": "°C",
                 "time": "iso8601",
-                "visibility": "m",
+                "temperature_2m": "°C",
+                "relative_humidity_2m": "%",
+                "dew_point_2m": "°C",
+                "apparent_temperature": "°C",
+                "precipitation_probability": "%",
+                "precipitation": "mm",
+                "rain": "mm",
+                "showers": "mm",
+                "snowfall": "cm",
+                "snow_depth": "m",
                 "weather_code": "wmo code",
+                "cloud_cover": "%",
+                "visibility": "m",
+                "wind_speed_10m": "km/h",
                 "wind_direction_10m": "°",
-                "wind_gusts_10m": "km/h",
-                "wind_speed_10m": "km/h"
+                "wind_gusts_10m": "km/h"
             },
             "hourly": {
-                "apparent_temperature": [
-                    1
+                "time": [
+                    "2026-01-01T00:00:00Z"
                 ],
-                "cloud_cover": [
-                    1
-                ],
-                "dew_point_2m": [
-                    1
-                ],
-                "precipitation": [
-                    1
-                ],
-                "precipitation_probability": [
-                    1
-                ],
-                "rain": [
+                "temperature_2m": [
                     1
                 ],
                 "relative_humidity_2m": [
                     1
                 ],
-                "showers": [
+                "dew_point_2m": [
                     1
                 ],
-                "snow_depth": [
+                "apparent_temperature": [
+                    1
+                ],
+                "precipitation_probability": [
+                    1
+                ],
+                "precipitation": [
+                    1
+                ],
+                "rain": [
+                    1
+                ],
+                "showers": [
                     1
                 ],
                 "snowfall": [
                     1
                 ],
-                "temperature_2m": [
+                "snow_depth": [
                     1
                 ],
-                "time": [
-                    "2026-01-01T00:00:00Z"
+                "weather_code": [
+                    1
+                ],
+                "cloud_cover": [
+                    1
                 ],
                 "visibility": [
                     1
                 ],
-                "weather_code": [
+                "wind_speed_10m": [
                     1
                 ],
                 "wind_direction_10m": [
@@ -147,32 +180,47 @@ const PLAN = [
                 ],
                 "wind_gusts_10m": [
                     1
-                ],
-                "wind_speed_10m": [
-                    1
                 ]
             },
             "daily_units": {
+                "time": "iso8601",
+                "weather_code": "wmo code",
+                "temperature_2m_max": "°C",
+                "temperature_2m_min": "°C",
                 "apparent_temperature_max": "°C",
                 "apparent_temperature_min": "°C",
+                "sunrise": "iso8601",
+                "sunset": "iso8601",
                 "precipitation_sum": "mm",
                 "rain_sum": "mm",
                 "snowfall_sum": "cm",
-                "sunrise": "iso8601",
-                "sunset": "iso8601",
-                "temperature_2m_max": "°C",
-                "temperature_2m_min": "°C",
-                "time": "iso8601",
-                "weather_code": "wmo code",
-                "wind_gusts_10m_max": "km/h",
-                "wind_speed_10m_max": "km/h"
+                "wind_speed_10m_max": "km/h",
+                "wind_gusts_10m_max": "km/h"
             },
             "daily": {
+                "time": [
+                    "2026-01-01"
+                ],
+                "weather_code": [
+                    1
+                ],
+                "temperature_2m_max": [
+                    1
+                ],
+                "temperature_2m_min": [
+                    1
+                ],
                 "apparent_temperature_max": [
                     1
                 ],
                 "apparent_temperature_min": [
                     1
+                ],
+                "sunrise": [
+                    "2026-01-01T00:00:00Z"
+                ],
+                "sunset": [
+                    "2026-01-01T00:00:00Z"
                 ],
                 "precipitation_sum": [
                     1
@@ -183,28 +231,10 @@ const PLAN = [
                 "snowfall_sum": [
                     1
                 ],
-                "sunrise": [
-                    "2026-01-01T00:00:00Z"
-                ],
-                "sunset": [
-                    "2026-01-01T00:00:00Z"
-                ],
-                "temperature_2m_max": [
-                    1
-                ],
-                "temperature_2m_min": [
-                    1
-                ],
-                "time": [
-                    "2026-01-01"
-                ],
-                "weather_code": [
+                "wind_speed_10m_max": [
                     1
                 ],
                 "wind_gusts_10m_max": [
-                    1
-                ],
-                "wind_speed_10m_max": [
                     1
                 ]
             }

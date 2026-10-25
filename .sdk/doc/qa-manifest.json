@@ -3,5 +3,17 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Elevation of the location in meters",
+      "Latitude of the location",
+      "Longitude of the location",
+      "Open-Meteo Weather API",
+      "Successful response with weather forecast data",
+      "This API provides comprehensive weather data including current conditions, hourly forecasts, and daily summaries. It includes metrics such as temperature, humidity, wind speed, precipitation, and various other atmospheric parameters.",
+      "Time taken to generate the response in milliseconds",
+      "Timezone identifier"
+    ]
+  }
 }

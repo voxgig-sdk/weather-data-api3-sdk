@@ -163,13 +163,13 @@ main: kit: entity: forecast: {
           o: "/forecast"
           q: {
             exist: [
-              "current"
-              "daily"
-              "hourly"
               "latitude"
               "longitude"
-              "timezone"
             ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

@@ -96,6 +96,7 @@ def make_config():
         },
         "optspec": {
           "clearTimer": "`$FUNCTION`",
+          "now": "`$FUNCTION`",
           "setTimer": "`$FUNCTION`",
         },
         "strict": False,
@@ -222,6 +223,7 @@ def make_config():
                       "type": "`$STRING`",
                       "kind": "query",
                       "example": "temperature_2m,relative_humidity_2m,apparent_temperature,is_day,wind_speed_10m,wind_direction_10m,wind_gusts_10m,precipitation,rain,showers,snowfall,weather_code,cloud_cover,pressure_msl,surface_pressure",
+                      "field": True,
                     },
                     {
                       "name": "daily",
@@ -229,6 +231,7 @@ def make_config():
                       "type": "`$STRING`",
                       "kind": "query",
                       "example": "weather_code,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,wind_speed_10m_max,sunrise,sunset,daylight_duration,sunshine_duration,uv_index_max,uv_index_clear_sky_max,rain_sum,showers_sum,snowfall_sum,precipitation_hours,precipitation_sum,precipitation_probability_max,wind_gusts_10m_max,wind_direction_10m_dominant,shortwave_radiation_sum,et0_fao_evapotranspiration",
+                      "field": True,
                     },
                     {
                       "name": "hourly",
@@ -236,6 +239,7 @@ def make_config():
                       "type": "`$STRING`",
                       "kind": "query",
                       "example": "temperature_2m,relative_humidity_2m,dew_point_2m,apparent_temperature,precipitation_probability,precipitation,rain,showers,snowfall,snow_depth,vapour_pressure_deficit,et0_fao_evapotranspiration,visibility,evapotranspiration,cloud_cover_high,cloud_cover_mid,cloud_cover_low,cloud_cover,surface_pressure,pressure_msl,weather_code,wind_speed_10m,wind_speed_80m,wind_speed_120m,wind_speed_180m,wind_direction_10m,wind_direction_80m,wind_direction_120m,wind_direction_180m,wind_gusts_10m,temperature_80m,temperature_120m,temperature_180m,soil_temperature_0cm,soil_temperature_6cm,soil_temperature_18cm,soil_temperature_54cm,soil_moisture_0_to_1cm,soil_moisture_1_to_3cm,soil_moisture_3_to_9cm,soil_moisture_9_to_27cm,soil_moisture_27_to_81cm",
+                      "field": True,
                     },
                     {
                       "name": "latitude",
@@ -244,6 +248,7 @@ def make_config():
                       "kind": "query",
                       "reqd": True,
                       "example": 52.52,
+                      "field": True,
                     },
                     {
                       "name": "longitude",
@@ -252,6 +257,7 @@ def make_config():
                       "kind": "query",
                       "reqd": True,
                       "example": 13.41,
+                      "field": True,
                     },
                     {
                       "name": "timezone",
@@ -259,18 +265,19 @@ def make_config():
                       "type": "`$STRING`",
                       "kind": "query",
                       "example": "auto",
+                      "field": True,
                     },
                   ],
                 },
                 "select": {
                   "exist": [
-                    "current",
-                    "daily",
-                    "hourly",
                     "latitude",
                     "longitude",
-                    "timezone",
                   ],
+                },
+                "response": {
+                  "kind": "json",
+                  "media": "application/json",
                 },
               },
             ],
